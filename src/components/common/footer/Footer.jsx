@@ -1,6 +1,29 @@
 import React from "react"
 import { blog } from "../../../dummydata"
 import "./footer.css"
+import emailjs from "emailjs-com";
+
+
+const sendEmail = (e) => {
+  e.preventDefault();
+
+  emailjs
+    .sendForm(
+      "your_service_id", // Your EmailJS service ID
+      "your_template_id", // Your EmailJS template ID
+      e.target,           // The form element
+      "your_user_id"      // Your EmailJS user ID
+    )
+    .then(
+      (result) => {
+        console.log("Email sent successfully:", result.text);
+      },
+      (error) => {
+        console.error("Error sending email:", error.text);
+      }
+    );
+};
+
 
 const Footer = () => {
   return (
