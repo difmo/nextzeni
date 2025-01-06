@@ -8,7 +8,7 @@ import "../about/about.css"
 const Team = () => {
   return (
     <>
-      <Back title='Team' />
+      <Back title='Meet Our Team!' />
       <section className='team padding'>
         <div className='container grid'>
           <TeamCard />

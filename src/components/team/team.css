@@ -35,12 +35,12 @@
 }
 .team .details p {
   font-size: 15px;
-  color: grey;
+  color: var(--secondry-color);
   margin-top: 10px;
   transition: 0.5s;
 }
 .team .items:hover {
-  background-color: #536493;
+  background-color: var(--primary-color-hover);
   color: #fff;
   cursor: pointer;
 }
@@ -51,6 +51,6 @@
   opacity: 1;
 }
 .team .items:hover .overlay i:hover {
-  background-color: #536493;
+  background-color: var(--primary-color-hover);
   color: #fff;
 }

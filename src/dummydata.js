@@ -254,42 +254,42 @@ export const online = [
 export const team = [
   {
     cover: "./images/backimgA.jpeg",
-    name: "Ph.D Adrian Molises",
-    work: "DEVELOPER AND LEAD INSTRUCTOR",
+    name: "M.Sc English",
+    work: "English Teacher",
   },
   {
     cover: "./images/team/t2.webp",
-    name: "Ph.D Arthur MaGregor",
+    name: "B.Tech CSE",
     work: "DEVELOPER AND LEAD INSTRUCTOR",
   },
   {
     cover: "./images/team/t3.webp",
-    name: "Ph.D Anna Hanzen",
+    name: "B.Tech CSE",
     work: "DEVELOPER AND LEAD INSTRUCTOR",
   },
   {
     cover: "./images/team/t4.webp",
-    name: "Ph.D Brian Wooden",
+    name: "B.Tech CSE",
     work: "DEVELOPER AND LEAD INSTRUCTOR",
   },
   {
     cover: "./images/team/t5.webp",
-    name: "Ph.D Adrian Molises",
+    name: "B.Tech CSE",
     work: "DEVELOPER AND LEAD INSTRUCTOR",
   },
   {
     cover: "./images/team/t6.webp",
-    name: "Ph.D Arthur MaGregor",
+    name: "B.Tech CSE",
     work: "DEVELOPER AND LEAD INSTRUCTOR",
   },
   {
     cover: "./images/team/t7.webp",
-    name: "Ph.D Anna Hanzen",
+    name: "B.Tech CSE",
     work: "DEVELOPER AND LEAD INSTRUCTOR",
   },
   {
     cover: "./images/team/t8.webp",
-    name: "Ph.D Brian Wooden",
+    name: "B.Tech CSE",
     work: "DEVELOPER AND LEAD INSTRUCTOR",
   },
 ]
