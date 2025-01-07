@@ -11,10 +11,21 @@ const Head = () => {
           </div>
 
           <div className='social'>
-            <i className='fab fa-facebook-f icon'></i>
-            <i className='fab fa-instagram icon'></i>
-            <i className='fab fa-twitter icon'></i>
-            <i className='fab fa-youtube icon'></i>
+            <a href='https://www.facebook.com/profile.php?id=61571258289396' target='_blank' rel='noopener noreferrer'>
+              <i className='fab fa-facebook-f icon'></i>
+            </a>
+            <a href='https://www.instagram.com/nextzeni/' target='_blank' rel='noopener noreferrer'>
+              <i className='fab fa-instagram icon'></i>
+            </a>
+            <a href='https://x.com/next_zeni' target='_blank' rel='noopener noreferrer'>
+              <i className='fab fa-twitter icon'></i>
+            </a>
+            <a href='https://www.youtube.com/@NextZeni' target='_blank' rel='noopener noreferrer'>
+              <i className='fab fa-youtube icon'></i>
+            </a>
+            <a href='https://www.linkedin.com/company/nextzeni/?viewAsMember=true' target='_blank' rel='noopener noreferrer'>
+              <i className='fab fa-linkedin-in icon'></i>
+            </a>
           </div>
         </div>
       </section>

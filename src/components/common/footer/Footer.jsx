@@ -1,10 +1,7 @@
-import React from "react"
-import { blog } from "../../../dummydata"
-import "./footer.css"
-
-
-
-
+import React from "react";
+import { blog } from "../../../dummydata";
+import "./footer.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -16,7 +13,7 @@ const Footer = () => {
             <span>Stay informed and connected with the latest updates</span>
           </div>
           <div className='right row'>
-            <input className ="text-black" type='email' placeholder='Enter email address' />
+            <input className='text-black' type='email' placeholder='Enter email address' />
             <i className='fa fa-paper-plane'></i>
           </div>
         </div>
@@ -28,34 +25,36 @@ const Footer = () => {
             <span>ONLINE EDUCATION & LEARNING</span>
             <p>Empower Your Voice, Elevate Your Impact!</p>
 
-            <i className='fab fa-facebook-f icon'></i>
-            <i className='fab fa-twitter icon'></i>
-            <i className='fab fa-instagram icon'></i>
+            <a href="https://www.facebook.com/profile.php?id=61571258289396" target="_blank"><i className='fab fa-facebook-f icon'></i></a>
+            <a href="https://x.com/next_zeni" target="_blank"><i className='fab fa-twitter icon'></i></a>
+            <a href="https://www.instagram.com/nextzeni/" target="_blank"><i className='fab fa-instagram icon'></i></a>
+            <a href="https://www.youtube.com/@NextZeni" target="_blank"><i className='fab fa-youtube icon'></i></a>
+
           </div>
           <div className='box link'>
             <h3>Explore</h3>
             <ul>
-              <li>About Us</li>
-              <li>Services</li>
-              <li>Courses</li>
-              <li>Blog</li>
-              <li>Contact us</li>
+              <li><Link to='/about'>About Us</Link></li>
+              <li><Link to='/courses'>Services</Link></li>
+              <li><Link to='/courses'>Courses</Link></li>
+              <li><Link to='/journal'>Blog</Link></li>
+              <li><Link to='/contact'>Contact Us</Link></li>
             </ul>
           </div>
           <div className='box link'>
             <h3>Quick Links</h3>
             <ul>
-              <li>Contact Us</li>
-              <li>Pricing</li>
-              <li>Terms & Conditions</li>
-              <li>Privacy</li>
-              <li>Feedbacks</li>
+              <li><Link to='/contact'>Contact Us</Link></li>
+              <li><Link to='/pricing'>Pricing</Link></li>
+              <li><Link to='/'>Terms & Conditions</Link></li>
+              <li><Link to='/'>Privacy</Link></li>
+              <li><Link to='/'>Feedbacks</Link></li>
             </ul>
           </div>
           <div className='box'>
             <h3>Recent Post</h3>
-            {blog.slice(0, 3).map((val) => (
-              <div className='items flexSB'>
+            {blog.slice(0, 3).map((val, index) => (
+              <div className='items flexSB' key={index}>
                 <div className='img'>
                   <img src={val.cover} alt='' />
                 </div>
@@ -78,15 +77,15 @@ const Footer = () => {
             <ul>
               <li>
                 <i className='fa fa-map'></i>
-                4/37 Vibhav Khand, Gomtinagar, Lucknow, Uttar Pradesh, 226010 
+                4/37 Vibhav Khand, Gomtinagar, Lucknow, Uttar Pradesh, 226010
               </li>
               <li>
                 <i className='fa fa-phone-alt'></i>
-                +91 6307749532
+                <Link to='tel:+916307749532'>+91 630 774 9532</Link>
               </li>
               <li>
                 <i className='fa fa-paper-plane'></i>
-                ajaydhawan@gmail.com
+                <Link to='mailto:yournextzeni@gmail.com'>yournextzeni@gmail.com</Link>
               </li>
             </ul>
           </div>
@@ -94,11 +93,11 @@ const Footer = () => {
       </footer>
       <div className='legal'>
         <p>
-          Copyright ©2025 All rights reserved | This template is made with <i className='fa fa-heart'></i> by Difmo Technologies
+          Copyright ©{new Date().getFullYear()} All rights reserved | This template is made with <i className='fa fa-heart'></i> by Difmo Technologies
         </p>
       </div>
     </>
   )
 }
 
-export default Footer
+export default Footer;
