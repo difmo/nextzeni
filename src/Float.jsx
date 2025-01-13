@@ -1,5 +1,5 @@
 import React from "react";
-import img from "../public/images/callicon.png"
+import img from "../public/images/callme.gif"
 
 const Floating = () => {
   const phoneNumber = "+91 630 774 9532";
@@ -8,7 +8,7 @@ const Floating = () => {
     <div className="fixed bottom-4 right-4 animate-bounce">
       <a
         href={`tel:${phoneNumber}`}
-        className="bg-[#32a852] hover:bg-[#1d3c85] text-white p-4 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center"
+        className="bg-white border  text-white p-4 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center"
         aria-label="Call Phone Number"
       >
         <img
