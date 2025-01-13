@@ -1,5 +1,5 @@
 import React from "react";
-import img from "../public/images/callme.gif"
+import img from "../public/images/N.gif"
 
 const Floating = () => {
   const phoneNumber = "+91 630 774 9532";

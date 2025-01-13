@@ -64,7 +64,7 @@ const Contact = () => {
               </div>
               <input type="text" name="subject" placeholder="Subject" required />
               <textarea name="message" cols="30" rows="10" placeholder="Create a message here..." required></textarea>
-              <button type="submit" className="primary-btn animate-bounce   ">SEND MESSAGE</button>
+              <button type="submit" className="primary-btn animate-bounce  ">SEND MESSAGE</button>
             </form>
 
             <h3>Follow us here</h3>
