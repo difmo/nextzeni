@@ -77,7 +77,7 @@ export const coursesCard = [
   {
     id: 3,
     cover: "../images/courses/c03.png",
-    coursesName: "Grammar",
+    coursesName: "Soft Skills Training",
     courTeacher: [
       {
         dcover: "./images/backimgA.jpeg",
@@ -105,7 +105,7 @@ export const coursesCard = [
   {
     id: 5,
     cover: "../images/courses/c05.png",
-    coursesName: "Technical Expertise",
+    coursesName: "Marketing Basics",
     courTeacher: [
       {
         dcover: "./images/backimgA.jpeg",
@@ -119,7 +119,7 @@ export const coursesCard = [
   {
     id: 6,
     cover: "../images/courses/c06.png",
-    coursesName: "Personality Development",
+    coursesName: "Career Readiness",
     courTeacher: [
       {
         dcover: "./images/backimgA.jpeg",

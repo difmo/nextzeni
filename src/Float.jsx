@@ -5,7 +5,7 @@ const Floating = () => {
   const phoneNumber = "+91 630 774 9532";
 
   return (
-    <div className="fixed bottom-4 right-4">
+    <div className="fixed bottom-4 right-4 animate-bounce">
       <a
         href={`tel:${phoneNumber}`}
         className="bg-[#32a852] hover:bg-[#1d3c85] text-white p-4 rounded-full shadow-lg transition-all duration-300 flex items-center justify-center"
