@@ -13,7 +13,10 @@ const AboutCard = () => {
             <img src='./images/aboutimg.jpg' alt='' />
           </div>
           <div className='right row'>
-            <Heading subtitle='SPEAK WITH CONFIDENCE' title='Advantages of Online Learning Proficiency' />
+            <Heading subtitle='Why Choose NextZeni?' title='A brief overview of your mission and vision:' />
+            <p>NextZeni is dedicated to equipping students and professionals with essential skills that open
+              doors to success. We blend interactive learning with real-world applications to make your journey
+              enjoyable and impactful!</p>
             <div className='items'>
               {homeAbout.map((val) => {
                 return (

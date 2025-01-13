@@ -11,10 +11,10 @@ const Contact = () => {
 
     emailjs
       .sendForm
-        ('service_dmsch3b', 'template_mlny9t8', form.current, {
+      ('service_dmsch3b', 'template_mlny9t8', form.current, {
         publicKey: 'QAJJWF5gOlV6ZCU-M',
       })
-        
+
       .then(
         (result) => {
           console.log(result.text);
@@ -28,7 +28,7 @@ const Contact = () => {
     e.target.reset();
   };
 
-  const map = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.3549805515186!2d81.01755507498214!3d26.860460676678397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x921922aa4e79ddd%3A0x54e478f227f46594!2sDifmo%20Technologies!5e0!3m2!1sen!2sin!4v1736153834435!5m2!1sen!2sin" ;
+  const map = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.3549805515186!2d81.01755507498214!3d26.860460676678397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x921922aa4e79ddd%3A0x54e478f227f46594!2sDifmo%20Technologies!5e0!3m2!1sen!2sin!4v1736153834435!5m2!1sen!2sin";
 
   return (
     <>
@@ -64,7 +64,7 @@ const Contact = () => {
               </div>
               <input type="text" name="subject" placeholder="Subject" required />
               <textarea name="message" cols="30" rows="10" placeholder="Create a message here..." required></textarea>
-              <button type="submit" className="primary-btn">SEND MESSAGE</button>
+              <button type="submit" className="primary-btn animate-bounce   ">SEND MESSAGE</button>
             </form>
 
             <h3>Follow us here</h3>

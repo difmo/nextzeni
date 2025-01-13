@@ -54,7 +54,7 @@
   background-size: cover;
   background-position: center;
   height: 30vh;
-  color: var(--primary-color-hover);
+  color: var(--white-color);
 }
 .awrapper .box {
   padding: 70px 0;

@@ -77,7 +77,7 @@ const Footer = () => {
             <ul>
               <li>
                 <i className='fa fa-map'></i>
-                4/37 Vibhav Khand, Gomtinagar, Lucknow, Uttar Pradesh, 226010
+                E-3/44, Vijayipur, Vishesh Khand 3, Gomti Nagar, Lucknow, Uttar Pradesh 226010
               </li>
               <li>
                 <i className='fa fa-phone-alt'></i>

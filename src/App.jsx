@@ -11,7 +11,7 @@ import Footer from "./components/common/footer/Footer"
 import Home from "./components/home/Home"
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import ScrollToTop from "./components/ScrollToTop"
-
+import Floating from "./Float.jsx"
 
 function App() {
   return (
@@ -29,6 +29,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
+        <Floating />
       </Router>
     </>
   )

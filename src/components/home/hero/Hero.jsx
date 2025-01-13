@@ -9,17 +9,17 @@ const HeroHello = () => {
       <section className='hero bg-black'>
         <div className='container'>
           <div className='row'>
-            <Heading subtitle='WELCOME TO NEXTZENI' title='Leading Online Learning Specialists.' />
+            <Heading subtitle='WELCOME TO NEXTZENI' title='Empowering Your Future, One Skill at a Time' />
             <p>
-            Leading Online Learning Specialists design and deliver engaging, technology-driven educational experiences.
-            </p>
+            Learn Communication, English Speaking, and Soft Skills with NextZeni - Your Partner in Personal
+            and Professional Growth           </p>
             <div className='button'>
               <button className='primary-btn'>
-                ENROLL NOW <i className='fa fa-long-arrow-alt-right'></i>
+              Join a Free Workshop <i className='fa fa-long-arrow-alt-right'></i>
               </button>
               {/* <Link href="/courses"> */}
               <button>
-                ALL COURSES <i className='fa fa-long-arrow-alt-right'></i>
+              Explore Courses <i className='fa fa-long-arrow-alt-right'></i>
               </button>
               {/* </Link> */}
             </div>
