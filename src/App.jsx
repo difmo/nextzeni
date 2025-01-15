@@ -1,23 +1,23 @@
-import "./App.css"
-import Header from "./components/common/header/Header"
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
-import About from "./components/about/About"
-import CourseHome from "./components/allcourses/CourseHome"
-import Team from "./components/team/Team"
-import Pricing from "./components/pricing/Pricing"
-import Blog from "./components/blog/Blog"
-import Contact from "./components/contact/Contact"
-import Footer from "./components/common/footer/Footer"
-import Home from "./components/home/Home"
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import ScrollToTop from "./components/ScrollToTop"
-import Floating from "./Float.jsx"
+import "./App.css";
+import Header from "./components/common/header/Header";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import About from "./components/about/About";
+import CourseHome from "./components/allcourses/CourseHome";
+import Team from "./components/team/Team";
+import Pricing from "./components/pricing/Pricing";
+import Blog from "./components/blog/Blog";
+import Contact from "./components/contact/Contact";
+import Footer from "./components/common/footer/Footer";
+import Home from "./components/home/Home";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import ScrollToTop from "./components/ScrollToTop";
+import Floating from "./Float.jsx";
 
 function App() {
   return (
     <>
       <Router>
-      <ScrollToTop />
+        <ScrollToTop />
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -32,7 +32,7 @@ function App() {
         <Floating />
       </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

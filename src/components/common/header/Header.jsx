@@ -1,37 +1,40 @@
-import React, { useState } from "react"
-import { Link } from "react-router-dom"
-import Head from "./Head"
-import "./header.css"
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Head from "./Head";
+import "./header.css";
 
 const Header = () => {
-  const [click, setClick] = useState(false)
+  const [click, setClick] = useState(false);
 
   return (
     <>
       <Head />
       <header>
-        <nav className='flexSB'>
-          <ul className={click ? "mobile-nav" : "flexSB "} onClick={() => setClick(false)}>
+        <nav className="flexSB">
+          <ul
+            className={click ? "mobile-nav" : "flexSB "}
+            onClick={() => setClick(false)}
+          >
             <li>
-              <Link to='/'>Home</Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to='/courses'>All Courses</Link>
+              <Link to="/courses">All Courses</Link>
             </li>
             <li>
-              <Link to='/about'>About</Link>
+              <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to='/team'>Teams</Link>
+              <Link to="/team">Teams</Link>
             </li>
             <li>
-              <Link to='/pricing'>Pricing</Link>
+              <Link to="/pricing">Pricing</Link>
             </li>
             <li>
-              <Link to='/journal'>Blog</Link>
+              <Link to="/journal">Blog</Link>
             </li>
             <li>
-              <Link to='/contact'>Contact</Link>
+              <Link to="/contact">Contact</Link>
             </li>
           </ul>
           <Link to="/contact">
@@ -43,13 +46,17 @@ const Header = () => {
               </span>
             </div>
           </Link>
-          <button className='toggle' onClick={() => setClick(!click)}>
-            {click ? <i className='fa fa-times'> </i> : <i className='fa fa-bars'></i>}
+          <button className="toggle" onClick={() => setClick(!click)}>
+            {click ? (
+              <i className="fa fa-times"> </i>
+            ) : (
+              <i className="fa fa-bars"></i>
+            )}
           </button>
         </nav>
       </header>
     </>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

@@ -1,103 +1,192 @@
 import React from "react";
 import { blog } from "../../../dummydata";
-import "./footer.css";
 import { Link } from "react-router-dom";
+import "./footer.css";
 
 const Footer = () => {
   return (
     <>
-      <section className='newletter'>
-        <div className='container flexSB'>
-          <div className='left row'>
-            <h1>Subscribe to Our Bulletin - Stay Updated with the Latest News and Insights.</h1>
-            <span>Stay informed and connected with the latest updates</span>
+      <section className="newletter bg-gray-800 text-white py-6">
+        <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between px-6">
+          <div className="left mb-4 lg:mb-0">
+            <h1 className="text-xl lg:text-2xl font-bold">
+              Subscribe to Our Bulletin - Stay Updated with the Latest News and
+              Insights.
+            </h1>
+            <span className="text-gray-300">
+              Stay informed and connected with the latest updates
+            </span>
           </div>
-          <div className='right row'>
-            <input className='text-black' type='email' placeholder='Enter email address' />
-            <i className='fa fa-paper-plane'></i>
+          <div className="right flex items-center space-x-2">
+            <input
+              className="text-black p-2 rounded-lg w-60 lg:w-80"
+              type="email"
+              placeholder="Enter email address"
+            />
+            <i className="fa fa-paper-plane text-white cursor-pointer text-xl"></i>
           </div>
         </div>
       </section>
-      <footer>
-        <div className='container padding'>
-          <div className='box logo'>
-            <h1>NEXTZENI</h1>
-            <span>ONLINE EDUCATION & LEARNING</span>
-            <p>Empower Your Voice, Elevate Your Impact!</p>
 
-            <a href="https://www.facebook.com/profile.php?id=61571258289396" target="_blank"><i className='fab fa-facebook-f icon'></i></a>
-            <a href="https://x.com/next_zeni" target="_blank"><i className='fab fa-twitter icon'></i></a>
-            <a href="https://www.instagram.com/nextzeni/" target="_blank"><i className='fab fa-instagram icon'></i></a>
-            <a href="https://www.youtube.com/@NextZeni" target="_blank"><i className='fab fa-youtube icon'></i></a>
-
-          </div>
-          <div className='box link'>
-            <h3>Explore</h3>
-            <ul>
-              <li><Link to='/about'>About Us</Link></li>
-              <li><Link to='/courses'>Services</Link></li>
-              <li><Link to='/courses'>Courses</Link></li>
-              <li><Link to='/journal'>Blog</Link></li>
-              <li><Link to='/contact'>Contact Us</Link></li>
-            </ul>
-          </div>
-          <div className='box link'>
-            <h3>Quick Links</h3>
-            <ul>
-              <li><Link to='/contact'>Contact Us</Link></li>
-              <li><Link to='/pricing'>Pricing</Link></li>
-              <li><Link to='/'>Terms & Conditions</Link></li>
-              <li><Link to='/'>Privacy</Link></li>
-              <li><Link to='/'>Feedbacks</Link></li>
-            </ul>
-          </div>
-          <div className='box'>
-            <h3>Recent Post</h3>
-            {blog.slice(0, 3).map((val, index) => (
-              <div className='items flexSB' key={index}>
-                <div className='img'>
-                  <img src={val.cover} alt='' />
-                </div>
-                <div className='text'>
-                  <span>
-                    <i className='fa fa-calendar-alt'></i>
-                    <label htmlFor=''>{val.date}</label>
-                  </span>
-                  <span>
-                    <i className='fa fa-user'></i>
-                    <label htmlFor=''>{val.type}</label>
-                  </span>
-                  <h4>{val.title.slice(0, 40)}...</h4>
-                </div>
+      <footer className="bg-gray-900 text-white py-8">
+        <div className=" px-6">
+          <div className="flex flex-col sm:flex-row lg:flex-row justify-between gap-8">
+            {/* First Section */}
+            <div className="flex-1">
+              <h1 className="text-2xl font-bold mb-2">NEXTZENI</h1>
+              <span className="block text-gray-400">
+                ONLINE EDUCATION & LEARNING
+              </span>
+              <p className="mt-4 text-gray-300">
+                Empower Your Voice, Elevate Your Impact!
+              </p>
+              <div className="flex space-x-4 mt-4">
+                <a
+                  href="https://www.facebook.com/profile.php?id=61571258289396"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xl"
+                >
+                  <i className="fab fa-facebook-f"></i>
+                </a>
+                <a
+                  href="https://x.com/next_zeni"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xl"
+                >
+                  <i className="fab fa-twitter"></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/nextzeni/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xl"
+                >
+                  <i className="fab fa-instagram"></i>
+                </a>
+                <a
+                  href="https://www.youtube.com/@NextZeni"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xl"
+                >
+                  <i className="fab fa-youtube"></i>
+                </a>
               </div>
-            ))}
-          </div>
-          <div className='box last'>
-            <h3>Have a Questions?</h3>
-            <ul>
-              <li>
-                <i className='fa fa-map'></i>
-                E-3/44, Vijayipur, Vishesh Khand 3, Gomti Nagar, Lucknow, Uttar Pradesh 226010
-              </li>
-              <li>
-                <i className='fa fa-phone-alt'></i>
-                <Link to='tel:+916307749532'>+91 630 774 9532</Link>
-              </li>
-              <li>
-                <i className='fa fa-paper-plane'></i>
-                <Link to='mailto:yournextzeni@gmail.com'>yournextzeni@gmail.com</Link>
-              </li>
-            </ul>
+            </div>
+
+            {/* Explore Section */}
+            <div className="flex-1">
+              <h3 className="text-lg font-semibold mb-4">Explore</h3>
+              <ul className="space-y-2 text-gray-300">
+                <li>
+                  <Link to="/about">About Us</Link>
+                </li>
+                <li>
+                  <Link to="/courses">Services</Link>
+                </li>
+                <li>
+                  <Link to="/courses">Courses</Link>
+                </li>
+                <li>
+                  <Link to="/journal">Blog</Link>
+                </li>
+                <li>
+                  <Link to="/contact">Contact Us</Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Quick Links Section */}
+            <div className="flex-1">
+              <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+              <ul className="space-y-2 text-gray-300">
+                <li>
+                  <Link to="/contact">Contact Us</Link>
+                </li>
+                <li>
+                  <Link to="/pricing">Pricing</Link>
+                </li>
+                <li>
+                  <Link to="/">Terms & Conditions</Link>
+                </li>
+                <li>
+                  <Link to="/">Privacy</Link>
+                </li>
+                <li>
+                  <Link to="/">Feedbacks</Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Recent Post Section */}
+            <div className="flex-1">
+              <h3 className="text-lg font-semibold mb-4">Recent Post</h3>
+              {blog.slice(0, 3).map((val, index) => (
+                <div key={index} className="flex items-center space-x-4 mb-4">
+                  <img
+                    src={val.cover}
+                    alt=""
+                    className="w-16 h-16 object-cover rounded"
+                  />
+                  <div>
+                    <div className="text-gray-400 text-sm flex items-center space-x-2">
+                      <span>
+                        <i className="fa fa-calendar-alt"></i> {val.date}
+                      </span>
+                      <span>
+                        <i className="fa fa-user"></i> {val.type}
+                      </span>
+                    </div>
+                    <h4 className="text-gray-300 mt-2 text-sm">
+                      {val.title.slice(0, 40)}...
+                    </h4>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Contact Section */}
+            <div className="flex-1">
+              <h3 className="text-lg font-semibold mb-4">Have a Questions?</h3>
+              <ul className="space-y-4">
+                <li className="flex items-center space-x-3">
+                  <i className="fa fa-map text-xl"></i>
+                  <span className="text-sm">
+                    E-3/44, Vijayipur, Vishesh Khand 3, Gomti Nagar, Lucknow,
+                    Uttar Pradesh 226010
+                  </span>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <i className="fa fa-phone-alt text-xl"></i>
+                  <Link to="tel:+916307749532" className="text-sm">
+                    +91 630 774 9532
+                  </Link>
+                </li>
+                <li className="flex items-center space-x-3">
+                  <i className="fa fa-paper-plane text-xl"></i>
+                  <Link to="mailto:yournextzeni@gmail.com" className="text-sm">
+                    yournextzeni@gmail.com
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </footer>
-      <div className='legal'>
-        <p>
-          Copyright ©{new Date().getFullYear()} All rights reserved | This template is made with <i className='fa fa-heart'></i> by Difmo Technologies
-        </p>
+
+      <div className="legal bg-gray-800 text-gray-400 ">
+        <div className="container mx-auto text-center">
+          <p>
+            Copyright ©{new Date().getFullYear()} All rights reserved | This
+            template is made with <i className="fa fa-heart text-red-600"></i>{" "}
+            by Difmo Technologies
+          </p>
+        </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 export default Footer;

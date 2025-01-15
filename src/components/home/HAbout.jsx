@@ -1,69 +1,187 @@
-import React from "react"
-import OnlineCourses from "../allcourses/OnlineCourses"
-import Heading from "../common/heading/Heading"
-import "../allcourses/courses.css"
-import { coursesCard } from "../../dummydata"
+import React from "react";
+import OnlineCourses from "../allcourses/OnlineCourses";
+import Heading from "../common/heading/Heading";
+<div className=" px-4 py-10 ">
+  {/* Heading Section */}
+  <Heading subtitle="Our Courses" title="Explore Our Popular Online Courses" />
+
+  {/* Course Cards */}
+  <div className="mt-0">
+    <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-12">
+      {coursesCard.slice(0, 3).map((val, index) => (
+        <div
+          key={index}
+          className="items bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all"
+        >
+          <div className="content flex flex-col">
+            {/* Image Section */}
+            <div className="left mb-4">
+              <div className="img">
+                <img
+                  src={val.cover}
+                  alt={val.coursesName}
+                  className="w-full h-48 object-cover rounded-lg"
+                />
+              </div>
+            </div>
+
+            {/* Course Details */}
+            <div className="text">
+              <h1 className="text-lg font-semibold text-gray-800 mb-2">
+                {val.coursesName}
+              </h1>
+              <div className="rate flex items-center gap-2 mb-4">
+                <i className="fa fa-star text-yellow-400"></i>
+                <i className="fa fa-star text-yellow-400"></i>
+                <i className="fa fa-star text-yellow-400"></i>
+                <i className="fa fa-star text-yellow-400"></i>
+                <i className="fa fa-star text-yellow-400"></i>
+                <label htmlFor="" className="text-sm text-gray-500">
+                  (5.0)
+                </label>
+              </div>
+
+              {/* Course Teacher Section */}
+              <div>
+                {val.courTeacher.map((details, idx) => (
+                  <div key={idx} className="flex items-center gap-12 mb-2">
+                    <div className="box flex items-center gap-2">
+                      <div className="dimg w-10 h-10">
+                        <img
+                          src={details.dcover}
+                          alt={details.name}
+                          className="w-full h-full rounded-full object-cover"
+                        />
+                      </div>
+                      <div>
+                        <h4 className="text-gray-700 font-medium">
+                          {details.name}
+                        </h4>
+                      </div>
+                    </div>
+                    <span className="text-gray-500 text-sm">
+                      {details.totalTime}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Price and Enroll Button */}
+          <div className="mt-4 text-gray-800 text-lg font-semibold">
+            <h3>
+              {val.priceAll} / {val.pricePer}
+            </h3>
+          </div>
+          <button className="outline-btn mt-4 w-full py-2 border border-blue-500 text-blue-500 rounded-lg hover:bg-blue-500 hover:text-white transition-all">
+            ENROLL NOW!
+          </button>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>;
+
+import "../allcourses/courses.css";
+import { coursesCard } from "../../dummydata";
 
 const HAbout = () => {
   return (
     <>
-      <section className='homeAbout'>
-        <div className='container'>
-          <Heading subtitle='our courses' title='explore our popular online courses' />
+      <section className=" bg-gray-100 py-10">
+        <div className="mx-auto px-4 py-10 max-w-screen-xl">
+          {/* Heading Section */}
+          <Heading
+            subtitle="Our Courses"
+            title="Explore Our Popular Online Courses"
+          />
 
-          <div className='coursesCard'>
-            {/* copy code form  coursesCard */}
-            <div className='grid2'>
-              {coursesCard.slice(0, 3).map((val) => (
-                <div className='items'>
-                  <div className='content flex'>
-                    <div className='left'>
-                      <div className='img'>
-                        <img src={val.cover} alt='' />
+          {/* Course Cards */}
+          <div className="mt-10">
+            <div className="flex flex-wrap justify-center gap-12">
+              {coursesCard.slice(0, 3).map((val, index) => (
+                <div
+                  key={index}
+                  className="items bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all"
+                >
+                  <div className="flex flex-col">
+                    {/* Image Section */}
+                    <div className="left mb-4">
+                      <div className="img">
+                        <img
+                          src={val.cover}
+                          alt={val.coursesName}
+                          className="w-full h-48 object-cover rounded-lg"
+                        />
                       </div>
                     </div>
-                    <div className='text'>
-                      <h1>{val.coursesName}</h1>
-                      <div className='rate'>
-                        <i className='fa fa-star'></i>
-                        <i className='fa fa-star'></i>
-                        <i className='fa fa-star'></i>
-                        <i className='fa fa-star'></i>
-                        <i className='fa fa-star'></i>
-                        <label htmlFor=''>(5.0)</label>
+
+                    {/* Course Details */}
+                    <div className="text">
+                      <h1 className="text-lg font-semibold text-gray-800 mb-2">
+                        {val.coursesName}
+                      </h1>
+                      <div className="rate flex items-center gap-2 mb-4">
+                        <i className="fa fa-star text-yellow-400"></i>
+                        <i className="fa fa-star text-yellow-400"></i>
+                        <i className="fa fa-star text-yellow-400"></i>
+                        <i className="fa fa-star text-yellow-400"></i>
+                        <i className="fa fa-star text-yellow-400"></i>
+                        <label htmlFor="" className="text-sm text-gray-500">
+                          (5.0)
+                        </label>
                       </div>
-                      <div className='details'>
-                        {val.courTeacher.map((details) => (
-                          <>
-                            <div className='box'>
-                              <div className='dimg'>
-                                <img src={details.dcover} alt='' />
+
+                      {/* Course Teacher Section */}
+                      <div>
+                        {val.courTeacher.map((details, idx) => (
+                          <div
+                            key={idx}
+                            className="flex items-center gap-4 mb-2"
+                          >
+                            <div className=" flex items-center gap-2">
+                              <div className="dimg w-10 h-10">
+                                <img
+                                  src={details.dcover}
+                                  alt={details.name}
+                                  className="w-full h-full rounded-full object-cover"
+                                />
                               </div>
-                              <div className='para'>
-                                <h4>{details.name}</h4>
+                              <div>
+                                <h4 className="text-gray-700 font-medium">
+                                  {details.name}
+                                </h4>
                               </div>
                             </div>
-                            <span>{details.totalTime}</span>
-                          </>
+                            <span className="text-gray-500 text-sm">
+                              {details.totalTime}
+                            </span>
+                          </div>
                         ))}
                       </div>
                     </div>
                   </div>
-                  <div className='price'>
+
+                  {/* Price and Enroll Button */}
+                  <div className="mt-4 text-gray-800 text-lg font-semibold">
                     <h3>
                       {val.priceAll} / {val.pricePer}
                     </h3>
                   </div>
-                  <button className='outline-btn'>ENROLL NOW !</button>
+                  <button className="outline-btn mt-4 w-full py-2 border border-blue-500 text-blue-500 rounded-lg hover:bg-blue-500 hover:text-white transition-all">
+                    ENROLL NOW!
+                  </button>
                 </div>
               ))}
             </div>
           </div>
         </div>
+
         <OnlineCourses />
       </section>
     </>
-  )
-}
+  );
+};
 
-export default HAbout
+export default HAbout;
