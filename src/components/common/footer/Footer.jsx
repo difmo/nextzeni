@@ -28,7 +28,7 @@ const Footer = () => {
         </div>
       </section>
 
-      <footer className="bg-gray-900 text-white py-8">
+      <footer className="bg-gray-900 text-white py-4">
         <div className=" px-6">
           <div className="flex flex-col sm:flex-row lg:flex-row justify-between gap-8">
             {/* First Section */}
@@ -174,17 +174,14 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </footer>
-
-      <div className="legal bg-gray-800 text-gray-400 ">
-        <div className="container mx-auto text-center">
+        <hr />
+        <div className="flex justify-center pt-4">
           <p>
             Copyright ©{new Date().getFullYear()} All rights reserved | This
-            template is made with <i className="fa fa-heart text-red-600"></i>{" "}
-            by Difmo Technologies
+            template is made with by Difmo Technologies
           </p>
         </div>
-      </div>
+      </footer>
     </>
   );
 };
