@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
-// import Back from "../common/back/Back";
 
 const OurContact = () => {
   const form = useRef();
@@ -24,15 +23,12 @@ const OurContact = () => {
       );
     e.target.reset();
   };
-  {
-    /* <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3559.1451950395885!2d81.01597737543788!3d26.86712767667439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjbCsDUyJzAxLjciTiA4McKwMDEnMDYuOCJF!5e0!3m2!1sen!2sin!4v1738667917368!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */
-  }
+
   const map =
     "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3559.1451950395885!2d81.01597737543788!3d26.86712767667439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjbCsDUyJzAxLjciTiA4McKwMDEnMDYuOCJF!5e0!3m2!1sen!2sin!4v1738667917368!5m2!1sen!2sin";
 
   return (
     <>
-      {/* <Back title="Contact us" /> */}
       <section className=" py-6">
         <div className="container shadow flex flex-col md:flex-row gap-8 px-10">
           <div className="w-full md:w-1/2">
