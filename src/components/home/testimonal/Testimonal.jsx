@@ -1,19 +1,19 @@
 import React from "react";
-import { testimonial } from "../../../dummydata"; // Assuming the correct import name is 'testimonial'
+import { testimonal } from "../../../dummydata";
 import Heading from "../../common/heading/Heading";
 
-const Testimonial = () => {
+const Testimonal = () => {
   return (
     <>
-      <section className="testimonial bg-gray-100 py-10">
+      <section className="testimonal bg-gray-100 py-10">
         <div className="container mx-auto px-4">
           <Heading subtitle="Reference" title="Our Graduates' Achievements" />
 
-          <div className="content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-center mt-8">
-            {testimonial.map((val, index) => (
+          <div className="content flex flex-wrap gap-6 justify-center mt-8">
+            {testimonal.map((val, index) => (
               <div
                 key={index}
-                className="item bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition"
+                className="items bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition w-full sm:w-1/2 lg:w-1/3 xl:w-1/4"
               >
                 <div className="box flex items-center gap-4 mb-4">
                   <div className="img relative w-16 h-16">
@@ -41,4 +41,4 @@ const Testimonial = () => {
   );
 };
 
-export default Testimonial;
+export default Testimonal;
