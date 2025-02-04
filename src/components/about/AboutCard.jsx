@@ -1,6 +1,5 @@
 import React from "react";
 import Heading from "../common/heading/Heading";
-import "./about.css";
 import { homeAbout } from "../../dummydata";
 import Awrapper from "./Awrapper";
 
@@ -8,6 +7,7 @@ const AboutCard = () => {
   return (
     <>
       <section className=" bg-white py-10">
+        
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center md:items-start gap-10">
             {/* Left Section */}

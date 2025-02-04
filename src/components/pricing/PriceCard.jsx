@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 const PriceCard = () => {
   return (
     <div className="container mx-auto px-4 py-10">
-      <div className="flex flex-wrap justify-center gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 justify-center">
         {price.map((val, index) => (
           <div
             key={index}
-            className="items bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition transform hover:-translate-y-2 w-full sm:w-1/2 lg:w-1/3 xl:w-1/4"
+            className="bg-white shadow-md rounded-lg p-6 hover:shadow-lg transition transform hover:-translate-y-2 w-full"
           >
             <h4 className="text-xl font-semibold text-gray-800 mb-2">
               {val.name}
@@ -19,7 +19,7 @@ const PriceCard = () => {
             </h1>
             <p className="text-gray-600 mb-6">{val.desc}</p>
             <Link to="/contact">
-              <button className="outline-btn border-2 border-blue-600 text-blue-600 font-medium px-4 py-2 rounded-lg hover:bg-blue-600 hover:text-white transition">
+              <button className="border-2 border-blue-600 text-blue-600 font-medium px-4 py-2 rounded-lg hover:bg-blue-600 hover:text-white transition w-full">
                 GET STARTED
               </button>
             </Link>

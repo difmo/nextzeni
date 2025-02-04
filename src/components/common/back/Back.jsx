@@ -1,18 +1,25 @@
-import React from "react"
-import { useLocation } from "react-router-dom"
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import Home from "../../home/Home";
 
 const Back = ({ title }) => {
-  const location = useLocation()
+  const location = useLocation();
 
   return (
     <>
-      <section className='back'>
-        <h2>Home / {location.pathname.split("/")[1]}</h2>
-        <h1>{title}</h1>
+      <section className="w-full min-h-[200px] md:min-h-[300px] flex flex-col items-center  ">
+        <Link
+          to="/"
+          className="text-white text-lg md:text-3xl lg:text-4xl font-semibold left-0"
+        >
+          Home / {location.pathname.split("/")[1]}
+        </Link>
+        <h1 className="text-white text-xl md:text-4xl lg:text-5xl font-bold mt-2">
+          {title}
+        </h1>
       </section>
-      <div className='margin'></div>
     </>
-  )
-}
+  );
+};
 
-export default Back
+export default Back;

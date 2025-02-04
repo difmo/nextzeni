@@ -1,5 +1,5 @@
 import React from "react";
-import "../blog/blog.css";
+// import "../blog/blog.css";
 import { blog } from "../../dummydata";
 import Heading from "../common/heading/Heading";
 
