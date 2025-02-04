@@ -20,18 +20,18 @@ const Testimonal = () => {
                     <img
                       src={val.cover}
                       alt={val.name}
-                      className="w-full h-full rounded-full object-cover"
+                      className="h-auto w-auto rounded-full bg-cover"
                     />
                     <i className="fa fa-quote-left icon absolute top-0 left-0 text-blue-500 text-xl"></i>
                   </div>
-                  <div className="name">
+                  <div className="name pt-4">
                     <h2 className="text-lg font-semibold text-gray-800">
                       {val.name}
                     </h2>
                     <span className="text-sm text-gray-500">{val.post}</span>
                   </div>
                 </div>
-                <p className="text-gray-600">{val.desc}</p>
+                <p className="text-gray-600 pt-5">{val.desc}</p>
               </div>
             ))}
           </div>

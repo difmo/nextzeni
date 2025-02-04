@@ -1,6 +1,6 @@
 import React from "react";
 import Back from "../common/back/Back";
-import Ourcontact from "./ourcontact";
+import OurContact from "./ourcontact";
 
 const Contact = () => {
   return (
@@ -15,9 +15,8 @@ const Contact = () => {
           <Back title="Contact Us" />
         </div>
       </div>
-
+      <OurContact />
       {/* About Card Section */}
-      <Ourcontact />
     </>
   );
 };

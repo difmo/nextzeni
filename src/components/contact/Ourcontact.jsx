@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
-import Back from "../common/back/Back";
+// import Back from "../common/back/Back";
 
-const Ourcontact = () => {
+const OurContact = () => {
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -145,4 +145,4 @@ const Ourcontact = () => {
   );
 };
 
-export default Ourcontact;
+export default OurContact;
