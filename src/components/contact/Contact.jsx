@@ -1,6 +1,6 @@
 import React from "react";
 import Back from "../common/back/Back";
-import OurContact from "./ourcontact";
+import OurContact from "./OurContact";
 
 const Contact = () => {
   return (
