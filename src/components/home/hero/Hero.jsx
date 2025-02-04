@@ -4,7 +4,7 @@ import Heading from "../../common/heading/Heading";
 const HeroHello = () => {
   return (
     <>
-      <section className="bg-yellow-400 text-white pt-10 md:py-[42px] md:h-screen flex items-center">
+      <section className="bg-yellow-400 text-white pt-10 md:h-screen flex items-center">
         <div className="container mx-auto px-4 flex flex-col-reverse md:flex-row items-center gap-6">
           {/* Text Content */}
           <div className="w-full md:w-1/2 text-center md:text-left px-4">
@@ -17,11 +17,11 @@ const HeroHello = () => {
               NextZeni - Your Partner in Personal and Professional Growth.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-4 justify-center md:justify-start">
-              <button className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition text-sm sm:text-base">
+              <button className="bg-red-500 text-white py-4 px-4 rounded-lg hover:bg-red-700 transition text-sm sm:text-base">
                 Join a Free Workshop{" "}
                 <i className="fa fa-long-arrow-alt-right"></i>
               </button>
-              <button className="bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-900 transition text-sm sm:text-base">
+              <button className="bg-gray-800 text-white py-4 px-4 rounded-lg hover:bg-gray-900 transition text-sm sm:text-base">
                 Explore Courses <i className="fa fa-long-arrow-alt-right"></i>
               </button>
             </div>

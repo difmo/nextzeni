@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import img from "../../../../public/images/logo1.jpeg";
+import img from "../../../../public/images/logo.png";
 const Header = () => {
   const [click, setClick] = useState(false);
 
@@ -16,10 +16,10 @@ const Header = () => {
 
   return (
     <>
-      <header className="bg-gray-800 text-white">
-        <nav className="container mx-auto flex items-center justify-between pt-10 md:flex-row ">
+      <header className=" text-black">
+        <nav className="container mx-auto flex items-center justify-between  md:flex-row ">
           {/* Mobile Menu */}
-          <div className="fixed top-0 left-0 w-full bg-gray-900 text-white px-4 py-2 flex items-center justify-between z-50">
+          <div className="fixed top-0 left-0 w-full  text-black px-4 py-2 flex items-center justify-between z-50">
             {/* Logo */}
             <Link to="/" className="text-xl font-bold">
               <img
@@ -44,7 +44,7 @@ const Header = () => {
 
             {/* Navigation Menu */}
             <ul
-              className={`fixed top-10 left-0 w-full h-full bg-gray-800 text-white flex flex-col items-center justify-center gap-4 transform ${
+              className={`fixed top-11 left-0 w-full h-full bg-slate-100 flex flex-col items-center justify-center gap-4 transform ${
                 click ? "translate-x-0" : "-translate-x-full"
               } transition-transform duration-300 ease-in-out md:static md:w-auto md:flex-row md:gap-6 md:bg-transparent md:h-auto md:translate-x-0`}
             >
@@ -68,7 +68,7 @@ const Header = () => {
                   GET CERTIFICATE
                 </div>
                 <span className="absolute -top-2 -right-2 flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-100 opacity-75"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-fullopacity-75"></span>
                   <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
                 </span>
               </Link>
