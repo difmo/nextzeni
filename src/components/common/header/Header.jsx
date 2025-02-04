@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
+import img from "../../../../public/images/logo1.jpeg";
 const Header = () => {
   const [click, setClick] = useState(false);
 
@@ -23,7 +23,8 @@ const Header = () => {
             {/* Logo */}
             <Link to="/" className="text-xl font-bold">
               <img
-                src="public/images/logo1.jpeg"
+                // src="public/images/logo1.jpeg"
+                src={img}
                 alt="Logo"
                 className="bg-cover h-12"
               />
