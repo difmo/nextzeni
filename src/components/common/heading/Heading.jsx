@@ -1,11 +1,14 @@
 import React from "react";
 
 const Heading = ({ subtitle, title }) => (
-  <div className="text-center mb-12">
-    <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-700">
+  <div className="text-center md:mt-16 px-4">
+    {/* Subtitle */}
+    <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-gray-600">
       {subtitle}
     </h2>
-    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mt-4">
+
+    {/* Title */}
+    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-800 mt-2 sm:mt-4 leading-tight max-w-4xl mx-auto">
       {title}
     </h1>
   </div>

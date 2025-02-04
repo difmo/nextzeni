@@ -1,58 +1,78 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Head from "./Head";
-import "./header.css";
 
 const Header = () => {
   const [click, setClick] = useState(false);
 
+  const navItems = [
+    { name: "Home", path: "/" },
+    { name: "All Courses", path: "/courses" },
+    { name: "About", path: "/about" },
+    { name: "Teams", path: "/team" },
+    { name: "Pricing", path: "/pricing" },
+    { name: "Blog", path: "/journal" },
+    { name: "Contact", path: "/contact" },
+  ];
+
   return (
     <>
-      <Head />
-      <header>
-        <nav className="flexSB">
-          <ul
-            className={click ? "mobile-nav" : "flexSB "}
-            onClick={() => setClick(false)}
-          >
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/courses">All Courses</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/team">Teams</Link>
-            </li>
-            <li>
-              <Link to="/pricing">Pricing</Link>
-            </li>
-            <li>
-              <Link to="/journal">Blog</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-          </ul>
-          <Link to="/contact">
-            <div className="start relative">
-              <div className="button">GET CERTIFICATE</div>
-              <span className="absolute -top-0 -right-0 flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-100 opacity-500"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
-              </span>
+      <header className="bg-gray-800 text-white">
+        <nav className="container mx-auto flex items-center justify-between pt-10 md:flex-row ">
+          {/* Mobile Menu */}
+          <div className="fixed top-0 left-0 w-full bg-gray-900 text-white px-4 py-2 flex items-center justify-between z-50">
+            {/* Logo */}
+            <Link to="/" className="text-xl font-bold">
+              <img
+                src="public/images/logo1.jpeg"
+                alt="Logo"
+                className="bg-cover h-12"
+              />
+            </Link>
+
+            {/* Hamburger Button (Mobile) */}
+            <div
+              className="md:hidden text-2xl"
+              onClick={() => setClick(!click)}
+            >
+              {click ? (
+                <i className="fa fa-times"></i>
+              ) : (
+                <i className="fa fa-bars"></i>
+              )}
             </div>
-          </Link>
-          <button className="toggle" onClick={() => setClick(!click)}>
-            {click ? (
-              <i className="fa fa-times"> </i>
-            ) : (
-              <i className="fa fa-bars"></i>
-            )}
-          </button>
+
+            {/* Navigation Menu */}
+            <ul
+              className={`fixed top-10 left-0 w-full h-full bg-gray-800 text-white flex flex-col items-center justify-center gap-4 transform ${
+                click ? "translate-x-0" : "-translate-x-full"
+              } transition-transform duration-300 ease-in-out md:static md:w-auto md:flex-row md:gap-6 md:bg-transparent md:h-auto md:translate-x-0`}
+            >
+              {navItems.map((item, index) => (
+                <li key={index} className="text-lg">
+                  <Link
+                    to={item.path}
+                    className="block px-4 py-2 text-center transition hover:text-red-500"
+                    onClick={() => setClick(false)}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            {/* Get Certificate Button (Desktop) */}
+            <div className="hidden md:block">
+              <Link to="/contact" className="relative">
+                <div className="button bg-red-500 text-white px-4 py-2 rounded-md transition hover:bg-red-600">
+                  GET CERTIFICATE
+                </div>
+                <span className="absolute -top-2 -right-2 flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-100 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
+                </span>
+              </Link>
+            </div>
+          </div>
         </nav>
       </header>
     </>

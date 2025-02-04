@@ -1,7 +1,8 @@
 import React from "react";
-import { blog } from "../../../dummydata";
+// import { blog } from "../../../dummydata";
 import { Link } from "react-router-dom";
 import "./footer.css";
+import { FaLinkedin } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -73,6 +74,7 @@ const Footer = () => {
                 >
                   <i className="fab fa-youtube"></i>
                 </a>
+                <FaLinkedin />
               </div>
             </div>
 
@@ -120,33 +122,6 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Recent Post Section */}
-            <div className="flex-1">
-              <h3 className="text-lg font-semibold mb-4">Recent Post</h3>
-              {blog.slice(0, 3).map((val, index) => (
-                <div key={index} className="flex items-center space-x-4 mb-4">
-                  <img
-                    src={val.cover}
-                    alt=""
-                    className="w-16 h-16 object-cover rounded"
-                  />
-                  <div>
-                    <div className="text-gray-400 text-sm flex items-center space-x-2">
-                      <span>
-                        <i className="fa fa-calendar-alt"></i> {val.date}
-                      </span>
-                      <span>
-                        <i className="fa fa-user"></i> {val.type}
-                      </span>
-                    </div>
-                    <h4 className="text-gray-300 mt-2 text-sm">
-                      {val.title.slice(0, 40)}...
-                    </h4>
-                  </div>
-                </div>
-              ))}
-            </div>
-
             {/* Contact Section */}
             <div className="flex-1">
               <h3 className="text-lg font-semibold mb-4">Have a Questions?</h3>
@@ -175,10 +150,10 @@ const Footer = () => {
           </div>
         </div>
         <hr />
-        <div className="flex justify-center pt-4">
+        <div className="flex justify-center pt-4 px-4">
           <p>
-            Copyright ©{new Date().getFullYear()} All rights reserved | This
-            template is made with by Difmo Technologies
+            Copyright ©2025 | All rights reserved by NextZeni | Site Designed &
+            Developed by Difmo Technologies
           </p>
         </div>
       </footer>
