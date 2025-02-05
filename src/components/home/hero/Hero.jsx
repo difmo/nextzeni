@@ -4,7 +4,7 @@ import Heading from "../../common/heading/Heading";
 const HeroHello = () => {
   return (
     <>
-      <section className="bg-yellow-400 text-white pt-[75px] md:h-screen flex items-center">
+      <section className="bg-yellow-400 text-white  md:h-screen h-auto flex items-center pt-11">
         <div className="container mx-auto px-4 flex flex-col-reverse md:flex-row items-center gap-6">
           {/* Text Content */}
           <div className="w-full md:w-1/2 text-center md:text-left px-4 pt-6">
@@ -27,7 +27,7 @@ const HeroHello = () => {
             </div>
           </div>
           {/* Image Section */}
-          <div className="w-full md:w-1/2 flex justify-center order-first md:order-none">
+          <div className="w-full md:w-1/2 flex justify-center order-first md:order-none ">
             <img
               src="/images/landing.png"
               alt="Landing"
