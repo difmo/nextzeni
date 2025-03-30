@@ -2,7 +2,6 @@ import React from "react";
 // import "../blog/blog.css";
 import { blog } from "../../dummydata";
 import Heading from "../common/heading/Heading";
-import ShowBlogs from "../../admin/AddBlogs/ShowBlogs";
 
 const Hblog = () => {
   return (
@@ -47,14 +46,10 @@ const Hblog = () => {
               </div>
             ))}
           </div>
-          <ShowBlogs/>
         </div>
-
       </section>
     </>
   );
 };
 
 export default Hblog;
-
-
