@@ -6,6 +6,7 @@ import Hprice from "./Hprice";
 import Testimonal from "./testimonal/Testimonal";
 // import HeroHero from "../../../../../three/src/hello/hero/Hero"
 import HeroHello from "./hero/Hero";
+import Contact from "../contact/Contact";
 
 const Home = () => {
   return (
@@ -16,7 +17,8 @@ const Home = () => {
       <HAbout />
       <Testimonal />
       <Hblog />
-      <Hprice />
+      <Contact/>
+      {/* <Hprice /> */}
     </>
   );
 };

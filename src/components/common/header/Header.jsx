@@ -1,29 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import img from "../../../../public/images/logo.png";
+
 const Header = () => {
   const [click, setClick] = useState(false);
 
+  // Create refs for each section
+  const homeRef = useRef(null);
+  const coursesRef = useRef(null);
+  const aboutRef = useRef(null);
+  const teamRef = useRef(null);
+  const pricingRef = useRef(null);
+  const blogRef = useRef(null);
+  const contactRef = useRef(null);
+
   const navItems = [
-    { name: "Home", path: "/" },
-    { name: "All Courses", path: "/courses" },
-    { name: "About", path: "/about" },
-    { name: "Teams", path: "/team" },
-    { name: "Pricing", path: "/pricing" },
-    { name: "Blog", path: "/journal" },
-    { name: "Contact", path: "/contact" },
+    { name: "Home", ref: homeRef },
+    { name: "All Courses", ref: coursesRef },
+    { name: "About", ref: aboutRef },
+    { name: "Teams", ref: teamRef },
+    { name: "Pricing", ref: pricingRef },
+    { name: "Blog", ref: blogRef },
+    { name: "Contact", ref: contactRef },
   ];
+
+  const handleScrollToSection = (sectionRef) => {
+    sectionRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
 
   return (
     <>
-      <header className=" text-black">
-        <nav className="container mx-auto flex items-center justify-between  md:flex-row ">
+      <header className="text-black ">
+        <nav className=" flex items-center justify-between md:flex-row">
           {/* Mobile Menu */}
-          <div className="fixed top-0 left-0 w-full  text-black px-4 py-2 flex items-center justify-between z-50">
+          <div className="fixed top-0 left-0 w-full text-black px-4 py-2 flex items-center justify-between z-50">
             {/* Logo */}
             <Link to="/" className="text-xl font-bold">
               <img
-                // src="public/images/logo1.jpeg"
                 src={img}
                 alt="Logo"
                 className="bg-cover h-12"
@@ -50,13 +66,15 @@ const Header = () => {
             >
               {navItems.map((item, index) => (
                 <li key={index} className="text-lg">
-                  <Link
-                    to={item.path}
+                  <button
+                    onClick={() => {
+                      handleScrollToSection(item.ref);
+                      setClick(false); // Close mobile menu on click
+                    }}
                     className="block px-4 py-2 text-center transition hover:text-red-500"
-                    onClick={() => setClick(false)}
                   >
                     {item.name}
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -68,7 +86,7 @@ const Header = () => {
                   GET CERTIFICATE
                 </div>
                 <span className="absolute -top-2 -right-2 flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-fullopacity-75"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
                 </span>
               </Link>
@@ -76,6 +94,9 @@ const Header = () => {
           </div>
         </nav>
       </header>
+
+      {/* Sections */}
+     
     </>
   );
 };

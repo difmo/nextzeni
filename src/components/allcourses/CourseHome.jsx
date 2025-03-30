@@ -16,7 +16,7 @@ const CourseHome = () => {
         </div>
       </div>
       <CoursesCard />
-      <OnlineCourses />
+      {/* <OnlineCourses /> */}
     </>
   );
 };
