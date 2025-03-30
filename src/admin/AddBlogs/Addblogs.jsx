@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { doc, setDoc, getDoc, updateDoc } from "firebase/firestore";
-import { v4 as uuidv4 } from "uuid";
+import { doc, setDoc, getDoc, updateDoc, collection, addDoc } from "firebase/firestore";
 import { db, auth } from '../../firebase';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
@@ -26,7 +25,7 @@ const AddBlogs = () => {
         if (blogDoc.exists()) {
           const blogData = blogDoc.data();
           setTitle(blogData.title);
-          setTitle(blogData.subtitle);
+          setSubTitle(blogData.subtitle);
           setContent(blogData.content);
           setImagePreview(blogData.image || "");
         }
@@ -48,7 +47,7 @@ const AddBlogs = () => {
     if (!file) return null;
 
     const storage = getStorage();
-    const imageRef = ref(storage, `images/${file.name + uuidv4()}`);
+    const imageRef = ref(storage, `images/${file.name}-${Date.now()}`);
     const uploadTask = uploadBytesResumable(imageRef, file);
 
     return new Promise((resolve, reject) => {
@@ -92,7 +91,7 @@ const AddBlogs = () => {
         await updateDoc(doc(db, "blogs", blogId), blogData);
         alert("Blog updated successfully!");
       } else {
-        await setDoc(doc(db, "blogs", uuidv4()), blogData);
+        await addDoc(collection(db, "blogs"), blogData);
         alert("Blog created successfully!");
       }
 
@@ -109,11 +108,8 @@ const AddBlogs = () => {
         {blogId ? "Edit Blog Post" : "Create a New Blog Post"}
       </h1>
 
-      {/* Blog Title */}
       <div className="mb-4">
-        <label className="block text-lg font-semibold text-gray-700">
-          Blog Title
-        </label>
+        <label className="block text-lg font-semibold text-gray-700">Blog Title</label>
         <input
           type="text"
           value={title}
@@ -123,9 +119,7 @@ const AddBlogs = () => {
         />
       </div>
       <div className="mb-4">
-        <label className="block text-lg font-semibold text-gray-700">
-          Blog short description 
-        </label>
+        <label className="block text-lg font-semibold text-gray-700">Blog short description</label>
         <input
           type="text"
           value={subtitle}
@@ -135,11 +129,8 @@ const AddBlogs = () => {
         />
       </div>
 
-      {/* Blog Image Upload */}
       <div className="mb-4">
-        <label className="block text-lg font-semibold text-gray-700">
-          Blog Image
-        </label>
+        <label className="block text-lg font-semibold text-gray-700">Blog Image</label>
         <input
           type="file"
           accept="image/*"
@@ -155,11 +146,8 @@ const AddBlogs = () => {
         )}
       </div>
 
-      {/* Blog Content */}
       <div className="mb-4">
-        <label className="block text-lg font-semibold text-gray-700">
-          Content
-        </label>
+        <label className="block text-lg font-semibold text-gray-700">Content</label>
         <ReactQuill
           value={content}
           onChange={setContent}
@@ -178,7 +166,6 @@ const AddBlogs = () => {
         />
       </div>
 
-      {/* Publish Button */}
       <button
         onClick={handlePublish}
         className="px-6 py-2 mb-4 text-white transition bg-blue-500 rounded-lg hover:bg-blue-600"
