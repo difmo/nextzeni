@@ -6,31 +6,7 @@ import { FaLinkedin } from "react-icons/fa6";
 const Footer = () => {
   return (
     <>
-      <section className="  text-white py-6 bg-blend-darken">
-        <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between px-4 sm:px-6 py-6">
-          {/* Left Section */}
-          <div className="left mb-6 lg:mb-0 text-center lg:text-left">
-            <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 py-4">
-              Subscribe to Our Bulletin - Stay Updated with the Latest News and
-              Insights.
-            </h1>
-            <span className="text-gray-500 text-sm sm:text-base">
-              Stay informed and connected with the latest updates
-            </span>
-          </div>
 
-          {/* Right Section */}
-          <div className="right flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-2 w-full sm:w-auto">
-            <input
-              className="text-black p-2 rounded-lg w-full sm:w-60 lg:w-80 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-500"
-              type="email"
-              placeholder="Enter email address"
-            />
-            <button className="bg-blue-500 text-white p-2 rounded-lg w-full sm:w-auto hover:bg-blue-600 transition-all">
-              <i className="fa fa-paper-plane"></i>
-            </button>
-          </div>
-        </div>
       </section>
 
       <footer className="bg-gray-900 text-white py-4">
