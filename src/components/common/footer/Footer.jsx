@@ -9,7 +9,7 @@ const Footer = () => {
 
 
 
-      <footer className="bg-gray-900 text-white py-4">
+      <footer className="bg-gray-900 text-white py-4 mt-44">
         <div className=" px-6">
           <div className="flex flex-col sm:flex-row lg:flex-row justify-between gap-8">
             {/* First Section */}
