@@ -51,19 +51,13 @@ const BlogPage = () => {
   }
 
   return (
-    <div className="container h-screen  max-w-5xl mx-auto text-black pt-9 ">
-      <h1 className="mb-6 text-3xl font-semibold text-primary">{blog.title}</h1>
+    <div className="container  max-w-5xl mx-auto text-black pt-9 ">
+      <h1 className="  text-3xl font-semibold text-primary">{blog.title}</h1>
       <div
-        className="  p-8 rounded border-primary/40 mb-6 content-container "
+        className="pt-8 max-w-2xl rounded border-primary/40  content-container "
         dangerouslySetInnerHTML={{ __html: blog.content }}
       />
 
- {/* dfd dfds*/}
-      {/* <div className="flex">
-        <span className="ml-auto">
-          --{blog.bloggerName ? blog.bloggerName : "UnKnown"}
-        </span>
-      </div> */}
     </div>
   );
 };
