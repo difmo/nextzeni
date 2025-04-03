@@ -20,8 +20,8 @@ const Header = () => {
     { name: "Home", ref: homeRef },
     { name: "All Courses", ref: coursesRef },
     { name: "About", ref: aboutRef },
-    { name: "Teams", ref: teamRef },
-    { name: "Pricing", ref: pricingRef },
+    // { name: "Teams", ref: teamRef },
+    // { name: "Pricing", ref: pricingRef },
     { name: "Blog", ref: blogRef },
     { name: "Contact", ref: contactRef },
   ];
@@ -49,20 +49,20 @@ const Header = () => {
             </Link>
 
             <div
-              className="md:hidden text-2xl"
+              className="md:hidden relative z-30 text-2xl"
               onClick={() => setClick(!click)}
             >
               {click ? (
-                <i className="fa fa-times"></i>
+                <i className="fa fa-times text-white"></i>
               ) : (
-                <i className="fa fa-bars"></i>
+                <i className="fa fa-bars text-white"></i>
               )}
             </div>
           </div>
 
           {/* Navigation Menu */}
           <ul
-            className={`fixed top-11 left-0 w-full h-full bg-slate-100 flex flex-col items-center justify-center gap-4 transform ${
+            className={`fixed top-2  left-0 w-full h-full bg-black flex flex-col items-center justify-center gap-4 transform ${
               click ? "translate-x-0" : "-translate-x-full"
             } transition-transform duration-300 ease-in-out md:static md:w-auto md:flex-row md:gap-6 md:bg-transparent md:h-auto md:translate-x-0`}
           >

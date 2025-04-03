@@ -7,6 +7,7 @@ import Testimonal from "./testimonal/Testimonal";
 // import HeroHero from "../../../../../three/src/hello/hero/Hero"
 import HeroHello from "./hero/Hero";
 import Contact from "../contact/Contact";
+import ShowBlogs from "../../admin/AddBlogs/ShowBlogs";
 
 const Home = () => {
   return (
@@ -14,9 +15,11 @@ const Home = () => {
       <HeroHello />
       {/* <HeroHero /> */}
       <AboutCard />
+      <ShowBlogs/>
+
+      <Hblog />
       <HAbout />
       <Testimonal />
-      <Hblog />
       <Contact/>
       {/* <Hprice /> */}
     </>

@@ -47,7 +47,6 @@ const Hblog = () => {
               </div>
             ))}
           </div>
-          <ShowBlogs/>
         </div>
 
       </section>

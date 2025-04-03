@@ -52,9 +52,9 @@ const BlogPage = () => {
 
   return (
     <div className="container  max-w-5xl mx-auto text-black pt-9 ">
-      <h1 className="  text-3xl font-semibold text-primary">{blog.title}</h1>
+      <h1 className=" px-4 text-3xl font-semibold text-primary">{blog.title}</h1>
       <div
-        className="pt-8 max-w-2xl rounded border-primary/40  content-container "
+        className="p-4 max-w-2xl rounded border-primary/40  content-container "
         dangerouslySetInnerHTML={{ __html: blog.content }}
       />
 
