@@ -15,6 +15,7 @@ import BlogRoutes from "./admin/BlogRoutes/BlogRoutes.jsx";
 import CreateBlogRoutes from "./admin/BlogRoutes/CreateBlogRoutes.jsx";
 import AuthRoutes from "./routes/AuthRoutes.jsx";
 import Providers from "./context/Providers.jsx";
+import BlogPage from "./admin/AddBlogs/BlogPage.jsx";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/blogs/blog/:blogId" element={<BlogPage/>} />
           {/* <Route path="/about" element={<About />} />
           <Route path="/courses" element={<CourseHome />} />
           <Route path="/team" element={<Team />} />

@@ -65,9 +65,9 @@ const BlogRoutes = () => {
   return (
     <Routes>
 
-          <Route path="/" element={<ShowBlogs />} />
-          <Route path="/blog/:blogId" element={<BlogPage />} />
-     
+  <Route path="/" element={<ShowBlogs />} />
+  <Route path="/blogs/blog/:blogId" element={<BlogPage />} />
+
     </Routes>
   );
 };
