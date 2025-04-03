@@ -84,31 +84,31 @@ const Header = () => {
           <div className="hidden md:block">
             <div className="flex ">
             <Link to="/contact" className="relative mr-4">
-              <div className="button bg-red-500 text-white px-4 py-2 rounded-md transition hover:bg-red-600">
+              <div className="button bg-orange-500 text-white px-4 py-2 rounded-md transition hover:bg-orange-600">
                 GET CERTIFICATE
               </div>
               <span className="absolute -top-2 -right-2 flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-600"></span>
               </span>
             </Link>
             <Link to="/auth/signin" className="relative mr-4">
-              <div className="button bg-red-500 text-white px-4 py-2 rounded-md transition hover:bg-red-600">
+              <div className="button bg-orange-500 text-white px-4 py-2 rounded-md transition hover:bg-orange-600">
                 Login
               </div>
               <span className="absolute -top-2 -right-2 flex h-3 w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-600"></span>
               </span>
             </Link>
             {  isAdmin ? 
               <Link to="/admin/all-blogs" className="relative">
-                <div className="button bg-red-500 text-white px-4 py-2 rounded-md transition hover:bg-red-600">
+                <div className="button bg-orange-500 text-white px-4 py-2 rounded-md transition hover:bg-orange-600">
                   Admin
                 </div>
                 <span className="absolute -top-2 -right-2 flex h-3 w-3">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-red-600"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-600"></span>
                 </span>
               </Link>:<></>}
             </div>
