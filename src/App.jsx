@@ -27,15 +27,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blogs/blog/:blogId" element={<BlogPage/>} />
-          {/* <Route path="/about" element={<About />} />
-          <Route path="/courses" element={<CourseHome />} />
-          <Route path="/team" element={<Team />} />
+        
           <Route path="/auth/*" element={<AuthRoutes />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/journal" element={<Blog />} />
-          <Route path="/contact" element={<Contact />} />
+
           <Route path="/blogs/*" element={<BlogRoutes />} />
-          <Route path="/admin/*" element={<CreateBlogRoutes/>}/> */}
+          <Route path="/admin/*" element={<CreateBlogRoutes/>}/>
         </Routes>
         <Footer />
         <Floating />
