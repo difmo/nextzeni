@@ -61,8 +61,7 @@ const Contact = () => {
               <div className="box bg-gray-100 p-4 rounded-lg">
                 <h4 className="font-semibold">ADDRESS:</h4>
                 <p>
-                  4/37 Vibhav Khand, Gomtinagar, Lucknow, Uttar Pradesh, 226010
-                </p>
+M J Grand, Vikrant Khand -1, Vikrant Khand, Gomti Nagar, Lucknow, Uttar Pradesh 226010                </p>
               </div>
               <div className="box bg-gray-100 p-4 rounded-lg">
                 <h4 className="font-semibold">EMAIL:</h4>
