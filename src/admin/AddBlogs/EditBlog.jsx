@@ -4,8 +4,7 @@ import { db, storage } from "../../firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import MonacoEditor from "@monaco-editor/react";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+  import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { v4 as uuidv4 } from "uuid"; // For unique image file names
 
 const EditBlog = () => {
@@ -138,140 +137,9 @@ const EditBlog = () => {
             />
           </div>
 
-          {/* Dynamic Fields */}
-          {blog.fields.map((field, index) => (
-            <div key={index} className="p-4 mb-6 border rounded-lg">
-              <label className="block text-lg">{`Field ${index + 1}`}</label>
+        
 
-              {field.type === "heading" && (
-                <div>
-                  <label className="block text-lg">Heading</label>
-                  <input
-                    type="text"
-                    value={field.value}
-                    onChange={(e) => handleFieldChange(index, "value", e.target.value)}
-                    placeholder="Enter Heading"
-                    className="w-full p-2 mt-2"
-                  />
-                </div>
-              )}
-
-              {field.type === "description" && (
-                <div>
-                  <label className="block text-lg">Description</label>
-                  <textarea
-                    value={field.value}
-                    onChange={(e) => handleFieldChange(index, "value", e.target.value)}
-                    placeholder="Enter Description"
-                    className="w-full p-2 mt-2 bg-black "
-                  />
-                </div>
-              )}
-
-              {field.type === "link" && (
-                <div>
-                  <label className="block text-lg">Link</label>
-                  <input
-                    type="url"
-                    value={field.value}
-                    onChange={(e) => handleFieldChange(index, "value", e.target.value)}
-                    placeholder="Enter Link"
-                    className="w-full p-2 mt-2 bg-black"
-                  />
-                </div>
-              )}
-
-              {field.type === "image" && (
-                <div>
-                  <label className="block text-lg">Image</label>
-                  <input
-                    type="file"
-                    onChange={(e) => handleImageUpload(e.target.files[0], index)}
-                    className="w-full p-2 mt-2 bg-black"
-                  />
-                  {field.value && (
-                    <div className="mt-2">
-                      <img
-                        src={typeof field.value === "string" ? field.value : URL.createObjectURL(field.value)}
-                        alt="Uploaded"
-                        className="object-cover w-32 h-32"
-                      />
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {field.type === "code" && (
-                <div>
-                  <label className="block text-lg">Code Block</label>
-                  <select
-                    value={field.language}
-                    onChange={(e) => handleFieldChange(index, "language", e.target.value)}
-                    className="w-full p-2 mt-2"
-                  >
-                    <option value="javascript">JavaScript</option>
-                    <option value="python">Python</option>
-                    <option value="java">Java</option>
-                    <option value="cpp">C++</option>
-                    <option value="html">HTML</option>
-                    <option value="css">CSS</option>
-                  </select>
-
-                  <MonacoEditor
-                    language={field.language}
-                    value={field.value}
-                    onChange={(value) => handleFieldChange(index, "value", value)}
-                    height="200px"
-                    theme="vs-dark"
-                  />
-                </div>
-              )}
-
-              {/* Remove Field Button */}
-              <button
-                onClick={() => handleRemoveField(index)}
-                className="mt-2 text-white bg-red-500 rounded-lg"
-              >
-                Remove Field
-              </button>
-            </div>
-          ))}
-
-          {/* Buttons to Add Fields */}
-          <div className="flex gap-4 mb-6">
-            <button
-              onClick={() => handleAddField("heading")}
-              className="w-full px-6 py-2 text-white bg-green-500 rounded-lg hover:bg-green-600"
-            >
-              Add Heading
-            </button>
-            <button
-              onClick={() => handleAddField("description")}
-              className="w-full px-6 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600"
-            >
-              Add Description
-            </button>
-            <button
-              onClick={() => handleAddField("link")}
-              className="w-full px-6 py-2 text-white bg-yellow-500 rounded-lg hover:bg-yellow-600"
-            >
-              Add Link
-            </button>
-            <button
-              onClick={() => handleAddField("image")}
-              className="w-full px-6 py-2 text-white bg-purple-500 rounded-lg hover:bg-purple-600"
-            >
-              Add Image
-            </button>
-            <button
-              onClick={() => handleAddField("code")}
-              className="w-full px-6 py-2 text-white bg-teal-500 rounded-lg hover:bg-teal-600"
-            >
-              Add Code Block
-            </button>
-          </div>
-
-          {/* Save Changes Button */}
+        
           <button
             onClick={handlePublish}
             className="px-6 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600"

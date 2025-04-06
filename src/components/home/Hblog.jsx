@@ -7,7 +7,7 @@ import ShowBlogs from "../../admin/AddBlogs/ShowBlogs";
 const Hblog = () => {
   return (
     <>
-      <section className="blog bg-gray-100 py-10">
+      <section className="blog bg-gray-100 py-10" id="blogs">
         <div className="container mx-auto px-4">
           <Heading subtitle="OUR BLOG" title="Recent From Blog" />
 

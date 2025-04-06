@@ -56,7 +56,7 @@
     }
 
     return (
-      <div className="flex container ">
+      <div className="flex container " id="blogs">
         <div className="p-6 text-black ">
           <h1 class="text-5xl py-10 font-extrabold text-center text-gray-900 sm:text-6xl md:text-5xl bg-gradient-to-r from-primary via-secondary to-pink-500 text-transparent bg-clip-text">
             Our Blogs

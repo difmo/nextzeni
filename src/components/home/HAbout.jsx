@@ -5,14 +5,14 @@ import { coursesCard } from "../../dummydata";
 const HAbout = () => {
   return (
     <>
-      <section className="bg-gray-100 py-10">
+      <section id="courses" className="bg-gray-100 py-10">
         <div className="mx-auto px-4 py-10 max-w-screen-xl">
           {/* Heading Section */}
           <Heading
             subtitle="Our Courses"
             title="Explore Our Popular Online Courses"
           />
-
+  
           {/* Course Cards */}
           <div className="mt-10">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

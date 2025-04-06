@@ -1,49 +1,40 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import img from "../../../../public/images/logo.png";
 import { useProfile } from "../../../context/Providers/ProfileContext";
+import LoginScreen from "../../../pages/AuthScreens/LoginScreen";
 
 const Header = () => {
   const [click, setClick] = useState(false);
+  const [showLogin, setShowLogin] = useState(false); // 👈 for modal
+  const [showSignup, setShowSignup] = useState(false);
 
-  // Create refs for each section
-  const homeRef = useRef(null);
-  const coursesRef = useRef(null);
-  const aboutRef = useRef(null);
-  const teamRef = useRef(null);
-  const pricingRef = useRef(null);
-  const blogRef = useRef(null);
-  const contactRef = useRef(null);
-  const {isAdmin} = useProfile();
+  const { isAdmin } = useProfile();
 
   const navItems = [
-    { name: "Home", ref: homeRef },
-    { name: "All Courses", ref: coursesRef },
-    { name: "About", ref: aboutRef },
-    // { name: "Teams", ref: teamRef },
-    // { name: "Pricing", ref: pricingRef },
-    { name: "Blog", ref: blogRef },
-    { name: "Contact", ref: contactRef },
+    { name: "Home", id: "home" },
+    { name: "All Courses", id: "courses" },
+    { name: "About", id: "about" },
+    { name: "Blogs", id: "blogs" },
+    { name: "Contact", id: "contact" },
   ];
 
-  const handleScrollToSection = (sectionRef) => {
-    sectionRef.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+  const handleScrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
     <>
-      <header className="text-black flex justify-center border-b bg-black">
+      <header className="sticky top-0 z-50 bg-black text-black flex justify-center border-b shadow-md">
         <nav className="flex items-center justify-center md:justify-between container w-full px-4 py-2 md:flex-row">
           <div className="flex items-center justify-between w-full md:w-auto">
-            {/* Logo */}
             <Link to="/" className="text-xl font-bold">
               <img
                 src={img}
                 alt="Logo"
-        
                 className="bg-cover bg-white p-1 rounded-full h-16"
               />
             </Link>
@@ -60,18 +51,17 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Navigation Menu */}
+          {/* Navigation */}
           <ul
-            className={`fixed top-2  left-0 w-full h-full bg-black flex flex-col items-center justify-center gap-4 transform ${
-              click ? "translate-x-0" : "-translate-x-full"
-            } transition-transform duration-300 ease-in-out md:static md:w-auto md:flex-row md:gap-6 md:bg-transparent md:h-auto md:translate-x-0`}
+            className={`fixed top-2 left-0 w-full h-full bg-black flex flex-col items-center justify-center gap-4 transform ${click ? "translate-x-0" : "-translate-x-full"
+              } transition-transform duration-300 ease-in-out md:static md:w-auto md:flex-row md:gap-6 md:bg-transparent md:h-auto md:translate-x-0`}
           >
             {navItems.map((item, index) => (
               <li key={index} className="text-lg">
                 <button
                   onClick={() => {
-                    handleScrollToSection(item.ref);
-                    setClick(false); // Close mobile menu on click
+                    handleScrollToSection(item.id);
+                    setClick(false);
                   }}
                   className="block px-4 py-2 text-center transition text-white hover:text-red-500"
                 >
@@ -82,42 +72,38 @@ const Header = () => {
           </ul>
 
           <div className="hidden md:block">
-            <div className="flex ">
-            <Link to="/contact" className="relative mr-4">
-              <div className="button bg-orange-500 text-white px-4 py-2 rounded-md transition hover:bg-orange-600">
-                GET CERTIFICATE
-              </div>
-              <span className="absolute -top-2 -right-2 flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-600"></span>
-              </span>
-            </Link>
-            <Link to="/auth/signin" className="relative mr-4">
-              <div className="button bg-orange-500 text-white px-4 py-2 rounded-md transition hover:bg-orange-600">
-                Login
-              </div>
-              <span className="absolute -top-2 -right-2 flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-600"></span>
-              </span>
-            </Link>
-            {  isAdmin ? 
-              <Link to="/admin/all-blogs" className="relative">
+            <div className="flex">
+              <Link to="/contact" className="relative mr-4">
                 <div className="button bg-orange-500 text-white px-4 py-2 rounded-md transition hover:bg-orange-600">
-                  Admin
+                  GET CERTIFICATE
                 </div>
-                <span className="absolute -top-2 -right-2 flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-orange-600"></span>
-                </span>
-              </Link>:<></>}
+              </Link>
+
+              {/* Toggle Login Modal */}
+              <button
+                onClick={() => setShowLogin(true)}
+                className="relative mr-4"
+              >
+                <div className="button bg-orange-500 text-white px-4 py-2 rounded-md transition hover:bg-orange-600">
+                  Login
+                </div>
+              </button>
+
+              {isAdmin && (
+                <Link to="/admin/all-blogs" className="relative">
+                  <div className="button bg-orange-500 text-white px-4 py-2 rounded-md transition hover:bg-orange-600">
+                    Admin
+                  </div>
+                </Link>
+              )}
             </div>
-     
           </div>
         </nav>
       </header>
 
-      {/* Sections */}
+      {/* Modal Mount */}
+      <LoginScreen isOpen={showLogin} onClose={() => setShowLogin(false)} />
+        {showSignup && <SignUpScreen closeModal={() => setShowSignup(false)} />}
     </>
   );
 };

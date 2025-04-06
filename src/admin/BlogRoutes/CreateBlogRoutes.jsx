@@ -72,6 +72,7 @@ const CreateBlogRoutes = () => {
           <Route path="/addblogs" element={<Addblogs />} />
           <Route path="/all-blogs" element={<AllBlogs />} />
           <Route path="/edit-blog/:blogId" element={<EditBlog />} />
+          
         </Route>
       ) : (
         <Route path="/" element={<Home />} />

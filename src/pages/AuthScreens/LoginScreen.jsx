@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import CustomInput from "../../components/InputAndButton/CustomInput";
 import CustomButton from "../../components/InputAndButton/CustomButton";
@@ -9,44 +8,31 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 const validationSchema = Yup.object({
-  email: Yup.string()
-    .email("Invalid email format")
-    .required("Email is required"),
-  password: Yup.string()
-    .min(6, "Password must be at least 6 characters")
-    .required("Password is required"),
+  email: Yup.string().email("Invalid email format").required("Email is required"),
+  password: Yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
 });
 
-export default function LoginScreen() {
+export default function LoginModal({ isOpen, onClose }) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
   const formik = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-    },
-    validationSchema: validationSchema,
+    initialValues: { email: "", password: "" },
+    validationSchema,
     onSubmit: async (values) => {
       setErrorMessage("");
       setLoading(true);
-
       try {
-        const userCredential = await signInWithEmailAndPassword(
-          auth,
-          values.email,
-          values.password
-        );
+        const userCredential = await signInWithEmailAndPassword(auth, values.email, values.password);
         const user = userCredential.user;
-
         if (user.emailVerified) {
+          onClose(); // close modal
           navigate("/");
         } else {
           setErrorMessage("Please verify your email first.");
         }
       } catch (error) {
-        console.error("Login error:", error.message);
         setErrorMessage(error.message);
       } finally {
         setLoading(false);
@@ -54,92 +40,71 @@ export default function LoginScreen() {
     },
   });
 
+  if (!isOpen) return null;
+
   return (
-    <section className="md:h-screen">
-      <div className="container flex flex-wrap items-center justify-center h-full lg:justify-between">
-        <div className="mb-12 md:w-9/12 lg:w-6/12">
-          {/* <img src={login} className="w-full" alt="Sample" /> */}
-        </div>
+    <div className="fixed inset-0 z-50 bg-black bg-opacity-60 flex justify-center items-center">
+      <div className="bg-white p-6 rounded-xl shadow-lg w-full max-w-md relative">
+        {/* Close Button */}
+        <button onClick={onClose} className="absolute top-3 right-4 text-gray-500 hover:text-black text-xl">&times;</button>
 
-        <div className="mb-12 md:mb-0 md:w-8/12 lg:w-5/12">
-          <form onSubmit={formik.handleSubmit}>
-            <div className="flex items-center justify-center mb-4 lg:justify-start">
-              <p className="mb-0 mr-4 text-lg">Sign in with your</p>
-            </div>
+        <h2 className="text-xl font-semibold mb-4 text-center">Login to your account</h2>
 
-            {/* Separator */}
-            <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
-              <p className="mx-4 mb-0 font-semibold text-center dark:text-white">
-                Or
-              </p>
-            </div>
+        <form onSubmit={formik.handleSubmit}>
+          <CustomInput
+            placeholder="Enter your email"
+            name="email"
+            type="email"
+            value={formik.values.email}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.email && formik.errors.email && (
+            <p className="text-red-500 text-sm">{formik.errors.email}</p>
+          )}
 
-            {/* Email Input */}
-            <CustomInput
-              placeholder={"Enter your email"}
-              name="email"
-              type="email"
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            {formik.touched.email && formik.errors.email && (
-              <p className="text-red-500">{formik.errors.email}</p>
-            )}
+          <CustomInput
+            placeholder="Enter your password"
+            name="password"
+            type="password"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.password && formik.errors.password && (
+            <p className="text-red-500 text-sm">{formik.errors.password}</p>
+          )}
 
-            {/* Password Input */}
-            <CustomInput
-              placeholder={"Enter your password"}
-              name="password"
-              type="password"
-              value={formik.values.password}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-            {formik.touched.password && formik.errors.password && (
-              <p className="text-red-500">{formik.errors.password}</p>
-            )}
+          {errorMessage && <p className="text-red-500 text-sm">{errorMessage}</p>}
 
-            {/* Display error message */}
-            {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+          <div className="flex justify-between text-sm mb-4">
+            <label className="flex items-center gap-1">
+              <input type="checkbox" className="accent-orange-500" /> Remember me
+            </label>
+            <a href="#!" className="text-orange-500 hover:underline">Forgot password?</a>
+          </div>
 
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex items-center">
-                <input
-                  className="w-4 h-4 mr-2"
-                  type="checkbox"
-                  id="rememberMe"
-                />
-                <label htmlFor="rememberMe" className="cursor-pointer">
-                  Remember me
-                </label>
-              </div>
-              <a href="#!">Forgot password?</a>
-            </div>
+          <CustomButton
+            type="submit"
+            text={loading ? "Logging in..." : "Login"}
+            disabled={loading}
+          />
 
-            {/* Login Button */}
-            <div className="text-center lg:text-left">
-              <CustomButton
-                type="submit"
-                text={loading ? "Logging in..." : "Login"}
-                disabled={loading}
-              />
-
-              {/* Register Link */}
-              <p className="mt-2 text-sm font-semibold">
-                Don't have an account?{" "}
-                <a
-                  href="#!"
-                  className="transition duration-150 ease-in-out text-danger hover:text-danger-600"
-                  onClick={() => navigate("/auth/signup")}
-                >
-                  Register
-                </a>
-              </p>
-            </div>
-          </form>
-        </div>
+          <p className="text-sm text-center mt-4">
+            Don't have an account?{" "}
+            <button
+              type="button"
+              className="text-orange-500 hover:underline"
+              onClick={() => {
+                onClose();
+   
+              }}
+            >
+              Register
+            </button>
+          </p>
+        </form>
       </div>
-    </section>
+    </div>
   );
 }
