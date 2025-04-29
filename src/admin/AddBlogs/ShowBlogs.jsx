@@ -65,31 +65,27 @@
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {blogs.map((blog) => (
               <div
-                // onClick={() => navigate(`blogs/blog/${blog.id}`)}
-                onClick={() => navigate(`blogs/blog/${blog.id}`)}
-                key={blog.id}
-                className="p-4 border rounded-lg cursor-pointer"
+              onClick={() => navigate(`blogs/blog/${blog.id}`)}
+              key={blog.id}
+              className="p-4 border rounded-lg cursor-pointer"
+            >
+              <img src={blog.image} alt={blog.title} className="w-full h-48 object-cover mb-4 rounded" />
+            
+              <h2 className="text-xl font-semibold mb-2">
+                {blog.title}
+              </h2>
+            
+              <p
+                className="text-gray-600 text-base line-clamp-2"
               >
-                <img src={blog.image}/>
-                <h2 className="text-xl font-semibold ">
-                  {blog.title}
-                </h2>
-                <h3 className="text-xl font-semibold ">
                 {blog.subtitle}
-                </h3>
-                {/* <p
-                  className="mt-2 text-gray-400"
-                  dangerouslySetInnerHTML={{ __html: blog.content.slice(0, 100) }}
-                /> */}
-                <div className="mt-4">
-                  <Link
-                    to={`blogs/blog/${blog.id}`}
-                    className="text-primary hover:text-blue-700"
-                  >
-                    View Blog
-                  </Link>
-                </div>
+              </p>
+            
+              <div className="mt-2 text-sm text-blue-500 hover:underline">
+                <Link to={`blogs/blog/${blog.id}`}>Continue reading →</Link>
               </div>
+            </div>
+            
             ))}
           </div>
         </div>
