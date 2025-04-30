@@ -16,6 +16,7 @@ import CreateBlogRoutes from "./admin/BlogRoutes/CreateBlogRoutes.jsx";
 import AuthRoutes from "./routes/AuthRoutes.jsx";
 import Providers from "./context/Providers.jsx";
 import BlogPage from "./admin/AddBlogs/BlogPage.jsx";
+import FreeResourcesPage from "./components/resources/FreeResourcesPage.jsx";
 
 function App() {
   return (
@@ -32,6 +33,8 @@ function App() {
 
           <Route path="/blogs/*" element={<BlogRoutes />} />
           <Route path="/admin/*" element={<CreateBlogRoutes/>}/>
+          <Route path="/free-resources" element={<FreeResourcesPage/>} />
+
         </Routes>
         <Footer />
         <Floating />
