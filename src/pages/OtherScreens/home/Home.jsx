@@ -1,22 +1,20 @@
 import React from "react";
-import AboutCard from "../about/AboutCard";
+import AboutCard from "../../../components/about/AboutCard";
 import Hblog from "./Hblog";
 import HAbout from "./HAbout";
   import Testimonal from "./testimonal/Testimonal";
 // import HeroHero from "../../../../../three/src/hello/hero/Hero"
 import HeroHello from "./hero/Hero";
-import Contact from "../contact/Contact";
-import ShowBlogs from "../../admin/AddBlogs/ShowBlogs";
-import AboutNew from "../about/NewAbout";
+import Contact from "../../../components/contact/Contact";
+import ShowBlogs from "../../../admin/AddBlogs/ShowBlogs";
+import AboutNew from "../../../components/about/NewAbout";
 
 const Home = () => {
   return (
     <>
       <HeroHello />
-      {/* <HeroHero /> */}
       <AboutCard />
       <ShowBlogs/>
-
       <Hblog />
       <HAbout />
       <AboutNew/>

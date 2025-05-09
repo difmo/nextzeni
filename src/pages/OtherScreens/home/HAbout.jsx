@@ -1,6 +1,6 @@
 import React from "react";
-import Heading from "../common/heading/Heading";
-import { coursesCard } from "../../dummydata";
+import Heading from "../../../components/common/heading/Heading";
+import { coursesCard } from "../../../dummydata";
 
 const HAbout = () => {
   return (

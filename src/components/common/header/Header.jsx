@@ -12,12 +12,12 @@
     const { isAdmin } = useProfile();
 
     const navItems = [
-      { name: "Home", id: "home" },
-      { name: "All Courses", id: "courses" },
-      { name: "About", id: "about" },
-      { name: "Blogs", id: "blogs" },
+      { name: "Home", id: "home", path: "/" },
+      { name: "All Courses", id: "courses", path: "/courses" },
+      { name: "About", id: "about",path: "/about" },
+      { name: "Blogs", id: "blogs" ,path: "/blogs"},
       { name: "Free Resources", path: "/free-resources" }, // 👈 Use `path` here
-      { name: "Contact", id: "contact" },
+      { name: "Contact", id: "contact",path: "/contact" },
     ];
     
 

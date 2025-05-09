@@ -1,8 +1,8 @@
 import React from "react";
 // import "../blog/blog.css";
-import { blog } from "../../dummydata";
-import Heading from "../common/heading/Heading";
-import ShowBlogs from "../../admin/AddBlogs/ShowBlogs";
+import { blog } from "../../../dummydata";
+import Heading from "../../../components/common/heading/Heading";
+import ShowBlogs from "../../../admin/AddBlogs/ShowBlogs";
 
 const Hblog = () => {
   return (

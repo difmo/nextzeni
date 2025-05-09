@@ -9,7 +9,7 @@ import EditBlog from "../AddBlogs/EditBlog";
 import BlogPage from "../AddBlogs/BlogPage";
 import ShowBlogs from "../AddBlogs/ShowBlogs";
 import CreateBlogLayout from "../Layout/CreateBlogLayout";
-import Home from "../../components/home/Home.jsx";
+import Home from "../../pages/OtherScreens/home/Home.jsx";
 
 const CreateBlogRoutes = () => {
   const [isAdmin, setIsAdmin] = useState(false);

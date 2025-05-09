@@ -1,6 +1,6 @@
 import React from "react";
-import { testimonal } from "../../../dummydata";
-import Heading from "../../common/heading/Heading";
+import { testimonal } from "../../../../dummydata";
+import Heading from "../../../../components/common/heading/Heading";
 
 const Testimonal = () => {
   return (

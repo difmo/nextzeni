@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import Home from "../../home/Home";
+import Home from "../../../pages/OtherScreens/home/Home";
 
 const Back = ({ title }) => {
   const location = useLocation();
