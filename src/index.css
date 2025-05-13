@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* BlogPage.css */
+
+.content-container a {
+  color: blue;
+  text-decoration: underline;
+}
+
+.content-container ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.content-container ol {
+  list-style-type: decimal;
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.content-container li {
+  margin-bottom: 0.25rem;
+}
+.content-container a {
+  color: blue;
+  text-decoration: underline;
+  position: relative;
+  cursor: pointer;
+}
+.content-container a:hover {
+  color: red;
+}
