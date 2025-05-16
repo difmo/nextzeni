@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { db, storage } from "../../firebase"; 
+import { db, storage } from "../../firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-  import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { v4 as uuidv4 } from "uuid"; // For unique image file names
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { v4 as uuidv4 } from "uuid";
 
 const EditBlog = () => {
   const { blogId } = useParams();
@@ -13,11 +13,13 @@ const EditBlog = () => {
 
   const [blog, setBlog] = useState({
     title: "",
+    subtitle: "",
     content: "",
-    link: "",
-    image: null,
-    fields: [],
+    image: "",
+    updatedAt: null,
   });
+  const [newImage, setNewImage] = useState(null);
+  const [imagePreview, setImagePreview] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -25,7 +27,9 @@ const EditBlog = () => {
       try {
         const blogDoc = await getDoc(doc(db, "blogs", blogId));
         if (blogDoc.exists()) {
-          setBlog(blogDoc.data());
+          const blogData = blogDoc.data();
+          setBlog(blogData);
+          setImagePreview(blogData.image || "");
         }
       } catch (error) {
         console.error("Error fetching blog: ", error);
@@ -37,29 +41,15 @@ const EditBlog = () => {
     fetchBlogData();
   }, [blogId]);
 
-  const handleFieldChange = (index, fieldKey, value) => {
-    const updatedFields = [...blog.fields];
-    updatedFields[index][fieldKey] = value;
-    setBlog({ ...blog, fields: updatedFields });
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setNewImage(file);
+      setImagePreview(URL.createObjectURL(file));
+    }
   };
 
-  const handleAddField = (type) => {
-    const newField = {
-      type: type,
-      value: "",
-      language: "javascript", 
-    };
-    setBlog({ ...blog, fields: [...blog.fields, newField] });
-  };
-
-  const handleRemoveField = (index) => {
-    const updatedFields = blog.fields.filter((_, i) => i !== index);
-    setBlog({ ...blog, fields: updatedFields });
-  };
-
-  const handleImageUpload = async (file, index) => {
-    if (!file) return;
-
+  const handleImageUpload = async (file) => {
     const imageRef = ref(storage, `images/${uuidv4()}_${file.name}`);
     const uploadTask = uploadBytesResumable(imageRef, file);
 
@@ -69,10 +59,7 @@ const EditBlog = () => {
         null,
         (error) => reject(error),
         () => {
-          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            handleFieldChange(index, "value", downloadURL);
-            resolve(downloadURL);
-          });
+          getDownloadURL(uploadTask.snapshot.ref).then(resolve).catch(reject);
         }
       );
     });
@@ -82,18 +69,24 @@ const EditBlog = () => {
     try {
       setLoading(true);
 
-      const updatedBlog = { ...blog };
-      for (let i = 0; i < updatedBlog.fields.length; i++) {
-        const field = updatedBlog.fields[i];
-        if (field.type === "image" && field.value instanceof File) {
-          await handleImageUpload(field.value, i);
-        }
+      let imageUrl = blog.image;
+
+      if (newImage instanceof File) {
+        imageUrl = await handleImageUpload(newImage);
       }
 
+      const updatedBlog = {
+        ...blog,
+        image: imageUrl,
+        updatedAt: new Date(), // <-- Add timestamp
+      };
+
       await updateDoc(doc(db, "blogs", blogId), updatedBlog);
+      alert("Blog updated successfully!");
       navigate("/all-blogs");
     } catch (error) {
       console.error("Error updating blog: ", error);
+      alert("Something went wrong!");
     } finally {
       setLoading(false);
     }
@@ -107,7 +100,6 @@ const EditBlog = () => {
         <div>
           <h1 className="mb-6 text-3xl font-semibold text-center">Edit Blog</h1>
 
-          {/* Blog Title */}
           <div className="mb-6">
             <label className="block text-lg">Title</label>
             <input
@@ -118,7 +110,33 @@ const EditBlog = () => {
             />
           </div>
 
-          {/* Blog Content */}
+          <div className="mb-6">
+            <label className="block text-lg">Subtitle</label>
+            <input
+              type="text"
+              value={blog.subtitle}
+              onChange={(e) => setBlog({ ...blog, subtitle: e.target.value })}
+              className="w-full p-2 mt-2 bg-black border border-gray-300 rounded-lg"
+            />
+          </div>
+
+          <div className="mb-6">
+            <label className="block text-lg">Image</label>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
+              className="w-full p-2 mt-2 bg-black border border-gray-300 rounded-lg"
+            />
+            {imagePreview && (
+              <img
+                src={imagePreview}
+                alt="Blog Preview"
+                className="w-full h-48 mt-4 rounded-lg object-cover"
+              />
+            )}
+          </div>
+
           <div className="mb-6">
             <label className="block text-lg">Content</label>
             <ReactQuill
@@ -127,24 +145,29 @@ const EditBlog = () => {
               className="w-full"
               modules={{
                 toolbar: [
-                  [{ 'header': '1' }, { 'header': '2' }, 'bold', 'italic', 'link'], // Adding 'header' for h1, h2 etc.
-                  [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                  ['blockquote', 'code-block'],
-                  ['link', 'image'],
-                  ['clean']
+                  [{ header: "1" }, { header: "2" }, { header: "3" }, { header: "4" }],
+                  ["bold", "italic", "underline"],
+                  ["link", "image"],
+                  [{ list: "ordered" }, { list: "bullet" }],
+                  ["blockquote", "code-block"],
+                  ["clean"],
                 ],
               }}
             />
           </div>
 
-        
+          {blog.updatedAt && (
+            <div className="mb-4 text-sm text-gray-400">
+              Last updated:{" "}
+              {new Date(blog.updatedAt.seconds * 1000).toLocaleString()}
+            </div>
+          )}
 
-        
           <button
             onClick={handlePublish}
             className="px-6 py-2 text-white bg-blue-500 rounded-lg hover:bg-blue-600"
           >
-            Save Changes
+            {loading ? "Saving..." : "Save Changes"}
           </button>
         </div>
       )}

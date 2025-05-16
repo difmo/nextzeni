@@ -22,8 +22,7 @@ const AllBlogs = () => {
 
         const blogsCollection = collection(db, "blogs");
 
-        const blogsQuery = query(blogsCollection, where("userId", "==", userId));
-        const querySnapshot = await getDocs(blogsQuery);
+        const querySnapshot = await getDocs(blogsCollection);
 
         // Debugging: Check the number of docs returned
         console.log("Blogs Query Snapshot Size:", querySnapshot.size);
@@ -71,7 +70,7 @@ const AllBlogs = () => {
   };
 
   const handleEdit = (id) => {
-    navigate(`/edit-blog/${id}`);  
+    navigate(`/admin/edit-blog/${id}`);  
   };
 
   return (
