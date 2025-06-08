@@ -242,7 +242,7 @@ const BlogPage = () => {
               .filter(b => b.id !== blogId)
               .map(b => (
                 <li key={b.id}>
-                  <Link to={`/blogs/blogs/blog/${b.id}`} className="text-blue-700 hover:underline text-sm">
+                  <Link to={`/blog/${b.id}`} className="text-blue-700 hover:underline text-sm">
                     {b.title}
                   </Link>
                 </li>

@@ -1,10 +1,6 @@
 import Header from "./components/common/header/Header";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import About from "./components/about/About";
-import CourseHome from "./components/allcourses/CourseHome";
-import Team from "./components/team/Team";
-import Pricing from "./components/pricing/Pricing";
-import Blog from "./components/blog/Blog";
+
 import Contact from "./components/contact/Contact";
 import Footer from "./components/common/footer/Footer";
 import Home from "./pages/OtherScreens/home/Home.jsx";
@@ -30,7 +26,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/blogs/blog/:blogId" element={<BlogPage/>} />
+          <Route path="/blog/:blogId" element={<BlogPage/>} />
           <Route path="/auth/*" element={<AuthRoutes />} />
           <Route path="/blogs/*" element={<BlogRoutes />} />
           <Route path="/admin/*" element={<CreateBlogRoutes/>}/>

@@ -66,7 +66,7 @@ const BlogRoutes = () => {
     <Routes>
 
   <Route path="/" element={<ShowBlogs />} />
-  <Route path="/blogs/blog/:blogId" element={<BlogPage />} />
+  <Route path="/blog/:blogId" element={<BlogPage />} />
 
     </Routes>
   );

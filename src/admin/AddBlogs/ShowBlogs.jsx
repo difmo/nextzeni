@@ -43,7 +43,7 @@ const ShowBlogs = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-4">
           {blogs.map((blog) => (
             <div
-              onClick={() => navigate(`blogs/blog/${blog.id}`)}
+              onClick={() => navigate(`blog/${blog.id}`)}
               key={blog.id}
               className="p-4 border border-gray-200 rounded-lg shadow-sm cursor-pointer hover:shadow-md transition-all bg-white"
             >
@@ -63,7 +63,7 @@ const ShowBlogs = () => {
               </p>
 
               <div className="mt-2 text-sm text-blue-600 hover:underline">
-                <Link to={`/blogs/blog/${blog.id}`}>Continue reading →</Link>
+                <Link to={`/blog/${blog.id}`}>Continue reading →</Link>
               </div>
             </div>
           ))}
